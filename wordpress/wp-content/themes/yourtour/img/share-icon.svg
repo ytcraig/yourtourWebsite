@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="21px" viewBox="0 0 16 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>share-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Individual-Tour-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Desktop---1440-V2-Copy" transform="translate(-1154.000000, -122.000000)" stroke="#594383" stroke-width="1.5">
+            <g id="share" transform="translate(1129.000000, 110.000000)">
+                <g id="elements" transform="translate(26.000000, 13.000000)">
+                    <g id="share-icon" transform="translate(0.000000, 0.400002)">
+                        <g id="Group" transform="translate(3.035300, 0.000000)">
+                            <path d="M3.87166516,13.7278242 L3.87394958,1.67226891" id="Stroke-1" transform="translate(3.872807, 7.700047) rotate(-180.000000) translate(-3.872807, -7.700047) "></path>
+                            <polyline id="Stroke-3" stroke-linejoin="round" transform="translate(3.859697, 1.992095) rotate(-180.000000) translate(-3.859697, -1.992095) " points="7.64469672 0.0995953937 3.85969663 3.88459548 0.0746965453 0.0995953937"></polyline>
+                        </g>
+                        <polyline id="Stroke-5" stroke-linejoin="round" points="11.013417 7.72222222 13.7663566 7.72222222 13.7700005 18.771172 0 18.771172 0 7.72222222 2.92825923 7.72222222"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="16px" viewBox="0 0 27 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>chevron-icon-grey</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop---1440" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-707.000000, -716.000000)">
+        <g id="hero" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M713.43934,713.56066 C712.853553,712.974874 712.853553,712.025126 713.43934,711.43934 C714.025126,710.853553 714.974874,710.853553 715.56066,711.43934 L727.024559,722.903239 C727.610366,723.489045 727.610343,724.438833 727.024508,725.024611 L715.560609,736.487398 C714.974794,737.073156 714.025046,737.07311 713.439288,736.487295 C712.85353,735.90148 712.853576,734.951733 713.439391,734.365975 L723.842527,723.963848 L713.43934,713.56066 Z" id="chevron-icon-grey" transform="translate(720.231950, 723.963343) rotate(90.000000) translate(-720.231950, -723.963343) "></path>
+        </g>
+    </g>
+</svg>

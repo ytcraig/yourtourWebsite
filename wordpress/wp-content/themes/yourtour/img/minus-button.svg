@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>+_button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop---1440---Expanded" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-898.000000, -443.000000)">
+        <g id="section-1" transform="translate(142.000000, 298.000000)" stroke="#22BFB3" stroke-width="2">
+            <g id="q-2" transform="translate(0.000000, 146.000000)">
+                <g id="+_button" transform="translate(757.000000, 0.000000)">
+                    <circle id="Oval" cx="10" cy="10" r="10"></circle>
+                    <g id="+_symbol" transform="translate(5.000000, 8.846154)" stroke-linecap="round">
+                        <path d="M5,-3.51282051 L5,5.82051282" id="Line-2-Copy" transform="translate(5.000000, 1.153846) rotate(-90.000000) translate(-5.000000, -1.153846) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

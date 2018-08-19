@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="My-Tours" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3.5---Sync---Host---Main-(Synced)" transform="translate(-132.000000, -479.000000)" fill="#FFFFFF">
+            <g id="header/hero" transform="translate(0.000000, -1.000000)">
+                <g id="directions-cta" transform="translate(13.000000, 346.000000)">
+                    <g id="main-info">
+                        <g id="begin" transform="translate(2.000000, 119.000000)">
+                            <g transform="translate(109.000000, 11.000000)" id="Rectangle-5">
+                                <path d="M15.5513397,5.92911614 L17.6367613,17.8525442 C17.7319121,18.3965707 17.3680266,18.9147263 16.8240001,19.0098771 C16.7100081,19.0298145 16.5934204,19.0298145 16.4794284,19.0098771 L4.55600028,16.9244555 C4.01197385,16.8293046 3.64808831,16.3111491 3.74323917,15.7671226 C3.77867693,15.5645067 3.87573344,15.3777477 4.02117938,15.2323017 L13.8591859,5.39429524 C14.2497102,5.00377094 14.8828752,5.00377094 15.2733994,5.39429524 C15.4188454,5.53974118 15.5159019,5.72650022 15.5513397,5.92911614 Z" transform="translate(10.690000, 12.063116) rotate(-45.000000) translate(-10.690000, -12.063116) "></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

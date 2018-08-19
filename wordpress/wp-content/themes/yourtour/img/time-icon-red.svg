@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="21px" viewBox="0 0 22 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>time-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Individual-Tour-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop---1440-V2-Copy" transform="translate(-258.000000, -841.000000)" stroke="#F26668" stroke-width="1.5">
+            <g id="key-info" transform="translate(142.000000, 840.000000)">
+                <g id="time" transform="translate(117.000000, 2.000000)">
+                    <g id="time-icon">
+                        <ellipse id="Oval-5" cx="10" cy="9.45777778" rx="9.33333333" ry="9.45777778"></ellipse>
+                        <polyline id="Path-3" stroke-linecap="round" stroke-linejoin="round" points="10.1946615 3.35567708 10.1946615 9.45777778 14.3164062 13.1045573"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
