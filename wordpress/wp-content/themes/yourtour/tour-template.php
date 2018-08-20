@@ -246,7 +246,7 @@
 
             <?php endwhile;?>
 
-            map.fitBounds(bounds, {top:30, bottom:100, right:20,left:20});
+            map.fitBounds(bounds, {top:30, bottom:200, right:20,left:20});
 
             <?php $i=0; while ($i<count($data->walks)): $walk = $data->walks[$i]; $i++; ?>
 
