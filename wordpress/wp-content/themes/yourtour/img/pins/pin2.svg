@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="27px" viewBox="0 0 25 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>pin2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-21.1%" y="-18.2%" width="142.1%" height="131.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Tour-Path---Add-Guide-Point" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3.1---Map-View---Add-Guide-Point---Off-of-Path" transform="translate(-166.000000, -407.000000)">
+            <g id="map">
+                <g id="pin2" filter="url(#filter-1)" transform="translate(169.000000, 410.000000)">
+                    <path d="M9.20510447,0 C14.288873,0 18.4099998,4.11778143 18.4099998,9.19778638 C18.4099998,13.6394453 15.2590419,17.3455322 11.0693341,18.2067662 C10.4671604,18.3303373 9.84365959,21.027574 9.20510447,21.027574 C8.57721284,21.027574 7.9637483,18.3324282 7.37119257,18.2128298 C3.16601231,17.3633047 0,13.6498997 0,9.19778638 C0,4.11778143 4.12112684,0 9.20510447,0" id="circle" stroke="#FFFFFF" stroke-width="1.5" fill="#594383"></path>
+                    <text id="2" font-family="Nunito-Bold, Nunito" font-size="13" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="5.3435" y="13.25">2</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

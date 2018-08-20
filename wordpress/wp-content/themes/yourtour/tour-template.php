@@ -29,6 +29,20 @@
     return $validURL;
   }?>
 
+  <?php function get_initials ($fname) {
+      $words = explode(" ", $fname);
+      $initials = "";
+
+      if (count($words) > 0) {
+        $initials .= $words[0][0];
+      }
+      if (count($words) > 1) {
+        $initials .= $words[count($words)-1][0];
+      }
+
+      return $initials;
+  }?>
+
   <body>
 
     <div id="modal-share-tour" class="o-modal">
@@ -95,7 +109,7 @@
 
           <div class="c-hero-tour--reviews">
             <div class="c-hero-tour--review-stars">
-              <?php echo do_shortcode("[usr 4]"); ?>
+              <?php $avgRating = is_null($data->averageRating) ? 0 : $data->averageRating; echo do_shortcode("[usr $avgRating]"); ?>
             </div>
             <div class="c-hero-tour--review-count"><?php $reviewCount = is_null($data->numberOfReviews) ? 0 : $data->numberOfReviews; echo $reviewCount ?></div>
           </div>
@@ -226,7 +240,7 @@
             var marker = new google.maps.Marker({
               position: stopLatLng,
               map: map,
-              icon: "<?php echo get_bloginfo('template_directory'); ?>/img/pin<?php echo $i;?>.svg",
+              icon: "<?php echo get_bloginfo('template_directory'); ?>/img/pins/pin<?php echo $i;?>.svg",
               title: '<?php echo addslashes($stop->name)?>'
             });
 
@@ -310,7 +324,7 @@
           <h4 class="c-content-tour--reviews-heading">Reviews</h4>
           <div class="c-content-tour--reviews">
             <div class="c-hero-tour--review-stars">
-              <?php echo do_shortcode("[usr 4]"); ?>
+              <?php echo do_shortcode("[usr $avgRating]"); ?>
             </div>
             <div class="c-content-tour--review-count"><?php $reviewCount = is_null($data->numberOfReviews) ? 0 : $data->numberOfReviews; echo $reviewCount ?> reviews</div>
           </div>
@@ -333,7 +347,7 @@
                   <img class="c-single-user-review--reviewer-profile-image" src="https://yourtourservice.azurewebsites.net/api/image/<?php echo $review->reviewer->headshot;?>"/>
                 <?php else :?>
                   <div class="c-single-user-review--reviewer-profile-image--default" style="background-color: #22BFB3;">
-                    <div class="c-single-user-review--reviewer-initials--default">NG</div>
+                    <div class="c-single-user-review--reviewer-initials--default"><?php echo get_initials($review->reviewer->name)?></div>
                     </div>
 
                 <?php endif;?>
@@ -346,7 +360,7 @@
               </div>
 
               <div class="c-single-user-review--review-stars">
-                <?php echo do_shortcode("[usr 4]"); ?>
+                <?php echo do_shortcode("[usr $review->ratingOverall]"); ?>
               </div>
 
               <div class="c-single-user-review--review"><?php echo $review->description?></div>
