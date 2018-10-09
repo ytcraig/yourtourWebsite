@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="215px" height="314px" viewBox="0 0 215 314" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>lines-1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Desktop---1440" transform="translate(0.000000, -516.000000)">
+            <g id="section-1" transform="translate(-51.000000, 479.000000)">
+                <g id="lines">
+                    <g id="lines-1">
+                        <polyline id="Path-2" stroke="#F26668" stroke-width="15" points="10 305.5 111.25 204.25 148.75 241.75 257.75 132.75"></polyline>
+                        <polyline id="Path-3" stroke="#594383" stroke-width="15" points="12 169 117 274 12 379"></polyline>
+                        <polyline id="Path-4" stroke="#F4BD34" stroke-width="15" points="0.25 7.75 217 224.5 108.625 332.875 15.125 239.375"></polyline>
+                        <path d="M2.94669914,13.0533009 C0.017766953,10.1243687 0.017766953,5.37563133 2.94669914,2.44669914 C5.87563133,-0.482233047 10.6243687,-0.482233047 13.5533009,2.44669914 L230.303301,219.196699 C233.232233,222.125631 233.232233,226.874369 230.303301,229.803301 L121.928301,338.178301 C118.999369,341.107233 114.250631,341.107233 111.321699,338.178301 L17.8216991,244.678301 C14.892767,241.749369 14.892767,237.000631 17.8216991,234.071699 C20.7506313,231.142767 25.4993687,231.142767 28.4283009,234.071699 L116.625,322.268398 L214.393398,224.5 L2.94669914,13.0533009 Z" id="Path-4-Copy" stroke="#343030" stroke-width="3" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

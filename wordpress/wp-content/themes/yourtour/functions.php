@@ -11,8 +11,9 @@ if ( ! is_admin() ) {
 	}
 	wp_deregister_script( 'wp-embed' );
   wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
-  wp_enqueue_script('main.js', get_template_directory_uri() . '/js/paginate.js', true);
-  wp_enqueue_script('main.js', get_template_directory_uri() . '/js/scripts.js', true);
+	wp_enqueue_script('paginate.js', get_template_directory_uri() . '/js/paginate.js', true);
+	wp_enqueue_script('main.js', get_template_directory_uri() . '/js/scripts.js', true);
+
 
 
 

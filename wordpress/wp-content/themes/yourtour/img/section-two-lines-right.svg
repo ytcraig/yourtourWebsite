@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="132px" height="361px" viewBox="0 0 132 361" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>lines-2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Desktop---1440" transform="translate(-1308.000000, -1160.000000)">
+            <g id="section-1" transform="translate(-51.000000, 479.000000)">
+                <g id="lines">
+                    <g id="lines-2" transform="translate(1456.500000, 863.000000) scale(-1, 1) translate(-1456.500000, -863.000000) translate(1366.000000, 675.000000)">
+                        <polyline id="Path-5" stroke="#22BFB3" stroke-width="15" stroke-linecap="round" points="37 45.5 130.25 138.75 15.75 253.25"></polyline>
+                        <path d="M111.643398,138.75 L23.6966991,50.8033009 C20.767767,47.8743687 20.767767,43.1256313 23.6966991,40.1966991 C26.6256313,37.267767 31.3743687,37.267767 34.3033009,40.1966991 L127.553301,133.446699 C130.482233,136.375631 130.482233,141.124369 127.553301,144.053301 L13.0533009,258.553301 C10.1243687,261.482233 5.37563133,261.482233 2.44669914,258.553301 C-0.482233047,255.624369 -0.482233047,250.875631 2.44669914,247.946699 L111.643398,138.75 Z" id="Path-5-Copy" stroke="#343030" stroke-width="3" stroke-linecap="round" fill-rule="nonzero"></path>
+                        <polyline id="Path-6" stroke="#F4BD34" stroke-width="15" stroke-linecap="round" points="42.5 174 146.5 70 90.5 14 10.5 94"></polyline>
+                        <polyline id="Path-7" stroke="#594383" stroke-width="15" points="32.5 0 180.5 148 106.5 222 148 263.5 36 375.5"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

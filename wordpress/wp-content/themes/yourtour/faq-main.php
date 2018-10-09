@@ -66,4 +66,4 @@
 
   </body>
 
-  <?php get_footer('alt'); ?>
+  <?php get_footer(); ?>

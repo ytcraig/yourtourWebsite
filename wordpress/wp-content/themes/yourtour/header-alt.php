@@ -10,9 +10,9 @@
     <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,700i" rel="stylesheet">
-    <meta name="google-site-verification" content="qw2vwBKtJOm8Ix-FxGo8DP4jCP4YdoW_-C7Wvm6Jk30" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <meta name="google-site-verification" content="qw2vwBKtJOm8Ix-FxGo8DP4jCP4YdoW_-C7Wvm6Jk30" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123171584-1"></script>
     <!-- Hotjar Tracking Code for https://goyourtour.com -->
@@ -60,12 +60,35 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/slick.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/paginate.js"></script>
-    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/scripts.js"></script>
+    <!-- <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/paginate.js"></script> -->
+    <!-- <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/scripts.js"></script> -->
     <header>
       <div class="container-main">
+
         <div class="nav">
-          <a href="<?php echo get_permalink( 56 ); ?>"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/icon-feet.svg"></a>
+          <a href="<?php echo get_permalink( 56 ); ?>">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.svg">
+          </a>
+          <div class="global-nav-items__container">
+            <a class="global-nav-item" href="<?php echo get_permalink( 254 ); ?>">Explore the tours</a></li>
+            <a class="global-nav-item" href="<?php echo get_permalink( 64 ); ?>" target="_blank">Help</a></li>
+            <button id="modal-button__contact" class="o-button o-button__green">Get in touch</button>
+          </div>
+
+          <div class="hamburger-menu-container">
+            <div class="hamburger-icon"></div>
+          </div>
+
+            <div class="menu-overlay">
+              <ul>
+                <li><a href="<?php echo get_permalink( 56 ); ?>">Home</a></li>
+                <li><a href="#">Download the App</a></li>
+                <li><a href="<?php echo get_permalink( 254 ); ?>">Explore the Tours</a></li>
+                <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
+                <li><a href="#">Get in touch</a></li>
+              </ul>
+            </div>
+
         </div>
       </div>
     </header>

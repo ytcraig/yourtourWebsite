@@ -45,7 +45,7 @@
 
   <body>
 
-    <div id="modal-share-tour" class="o-modal">
+  <div id="modal-share-tour" class="o-modal">
       <div class="modal-share-tour">
 
         <div class="modal-share-tour--content">
@@ -92,6 +92,16 @@
       </div>
     </div>
 
+  <div class="popup-cta__container">
+    <div class="popup-cta__button-container">
+      <a href="#"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
+    </div>
+      <!-- <div class="popup-cts__app-store-lockup">
+        <img class="app-icon-explorer--lockup" src="<?php echo get_bloginfo('template_directory'); ?>/img/explorer-app-icon.png"></img>
+        <a class="o-link--app-store--lockup" href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg"></img></a>
+      </div> -->
+  </div>
+
   <section class="c-hero--tour">
 
     <div class="c-hero-tour--share">
@@ -130,9 +140,10 @@
 
     <div class="c-hero-tour--creator-details">
       <div class="container-main">
-        <div class="c-hero-tour--creator-image" style="background-image: url('https://yourtourservice.azurewebsites.net/api/image/<?php echo $data->authorProfile->headshotId;?>')"></div>
-        <div class="c-hero-tour--creator-name">By <?php $authorName = $data->authorProfile->name; echo $authorName?></div>
-
+        <div class="creator-details__container">
+          <div class="c-hero-tour--creator-image" style="background-image: url('https://yourtourservice.azurewebsites.net/api/image/<?php echo $data->authorProfile->headshotId;?>')"></div>
+          <div class="c-hero-tour--creator-name">By <?php $authorName = $data->authorProfile->name; echo $authorName?></div>
+        </div>
       </div>
     </div>
 
@@ -152,9 +163,9 @@
       <div class="c-content-tour--right-container">
 
         <div id="tour-page-sticky-cta" class="c-content-tour--right">
-          <button type="button" class="o-button--preview">Preview the first three Stops</button>
+          <!-- <button type="button" class="o-button--preview">Preview the first three Stops</button> -->
           <a href="#"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
-          <div class="app-store-lockup">
+          <div class="app-store-lockup margin-top-20">
             <img class="app-icon-explorer--lockup" src="<?php echo get_bloginfo('template_directory'); ?>/img/explorer-app-icon.png"></img>
             <a class="o-link--app-store--lockup" href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg"></img></a>
           </div>
@@ -166,7 +177,7 @@
 
   </section>
 
-  <section class="c-content-tour--map">
+  <section class="c-content-tour--info">
 
     <div class="container-main">
 
@@ -188,8 +199,10 @@
       </div>
 
       <div class="c-content-tour--tags-container">
-          <img class="c-content-tour--tags-icon" src="<?php echo get_bloginfo('template_directory'); ?>/img/tags-icon.svg"></img>
+
           <div class="c-content-tour--tags-wrapper">
+
+            <img class="c-content-tour--tags-icon" src="<?php echo get_bloginfo('template_directory'); ?>/img/tags-icon.svg"></img>
 
           <?php
 
@@ -203,115 +216,118 @@
 
       </div>
 
+    </div>
+
+    <div class="container-main__no-mobile">
+
       <div class="c-content-tour--map-container">
 
-        <div class="c-stop-slider--arrows-container"></div>
+      <div class="c-stop-slider--arrows-container"></div>
 
-        <div class="c-content-tour--map-white-gradient-overlay"></div>
+      <div class="c-content-tour--map-white-gradient-overlay"></div>
 
-        <div class="c-content-tour--map-visual" id="map"></div>
-        <script>
-          var map;
-          function initMap() {
-            var styledMapType = new google.maps.StyledMapType(
-              [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#6195a0"}]},{"featureType":"administrative.province","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f2"},{"saturation":"0"},{"lightness":"0"},{"gamma":"1"}]},{"featureType":"landscape.man_made","stylers":[{"lightness":"-3"},{"gamma":"1.00"}]},{"featureType":"landscape.natural.terrain","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"saturation":"-100"}]},{"featureType":"poi.attraction","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.government","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#bae5ce"},{"visibility":"on"}]},{"featureType":"poi.place_of_worship","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"poi.school","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#787878"}]},{"featureType":"road.highway","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#fac9a9"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#4e4e4e"}]},{"featureType":"transit","stylers":[{"visibility":"simplified"}]},{"featureType":"transit.station.airport","elementType":"labels.icon","stylers":[{"hue":"#0a00ff"},{"saturation":"-77"},{"lightness":"0"},{"gamma":"0.57"}]},{"featureType":"transit.station.rail","elementType":"labels.icon","stylers":[{"hue":"#ff6c00"},{"saturation":"-68"},{"lightness":"4"},{"gamma":"0.75"}]},{"featureType":"transit.station.rail","elementType":"labels.text.fill","stylers":[{"color":"#43321e"}]},{"featureType":"water","stylers":[{"color":"#eaf6f8"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c7eced"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"saturation":"-53"},{"lightness":"-49"},{"gamma":"0.79"}]}], {name: 'Styled Map'});
+      <div class="c-content-tour--map-visual" id="map"></div>
+      <script>
+        var map;
+        function initMap() {
+          var styledMapType = new google.maps.StyledMapType(
+            [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#6195a0"}]},{"featureType":"administrative.province","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f2"},{"saturation":"0"},{"lightness":"0"},{"gamma":"1"}]},{"featureType":"landscape.man_made","stylers":[{"lightness":"-3"},{"gamma":"1.00"}]},{"featureType":"landscape.natural.terrain","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"saturation":"-100"}]},{"featureType":"poi.attraction","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.government","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#bae5ce"},{"visibility":"on"}]},{"featureType":"poi.place_of_worship","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"poi.school","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#787878"}]},{"featureType":"road.highway","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#fac9a9"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#4e4e4e"}]},{"featureType":"transit","stylers":[{"visibility":"simplified"}]},{"featureType":"transit.station.airport","elementType":"labels.icon","stylers":[{"hue":"#0a00ff"},{"saturation":"-77"},{"lightness":"0"},{"gamma":"0.57"}]},{"featureType":"transit.station.rail","elementType":"labels.icon","stylers":[{"hue":"#ff6c00"},{"saturation":"-68"},{"lightness":"4"},{"gamma":"0.75"}]},{"featureType":"transit.station.rail","elementType":"labels.text.fill","stylers":[{"color":"#43321e"}]},{"featureType":"water","stylers":[{"color":"#eaf6f8"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c7eced"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"saturation":"-53"},{"lightness":"-49"},{"gamma":"0.79"}]}], {name: 'Styled Map'});
 
-            var stopLatLng = new google.maps.LatLng({lat: parseFloat(<?php echo $data->stops[0]->latitude?>), lng: parseFloat(<?php echo $data->stops[0]->longitude?>)});
-            map = new google.maps.Map(document.getElementById('map'), {
-              center: stopLatLng,
-              zoom: 16,
-              disableDefaultUI: true,
-              mapTypeControlOptions: {
-              mapTypeIds: ['styled_map']
-              }
-            });
+          var stopLatLng = new google.maps.LatLng({lat: parseFloat(<?php echo $data->stops[0]->latitude?>), lng: parseFloat(<?php echo $data->stops[0]->longitude?>)});
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: stopLatLng,
+            zoom: 16,
+            disableDefaultUI: true,
+            mapTypeControlOptions: {
+            mapTypeIds: ['styled_map']
+            }
+          });
 
-            var bounds = new google.maps.LatLngBounds();
+          var bounds = new google.maps.LatLngBounds();
 
-            map.mapTypes.set('styled_map', styledMapType);
-            map.setMapTypeId('styled_map');
+          map.mapTypes.set('styled_map', styledMapType);
+          map.setMapTypeId('styled_map');
+
+          <?php $i=0; while ($i<count($data->stops)): $stop = $data->stops[$i]; $i++; ?>
+
+          stopLatLng = new google.maps.LatLng({lat: parseFloat(<?php echo $stop->latitude?>), lng: parseFloat(<?php echo $stop->longitude?>)});
+
+          bounds.extend(stopLatLng);
+
+          var marker = new google.maps.Marker({
+            position: stopLatLng,
+            map: map,
+            icon: "<?php echo get_bloginfo('template_directory'); ?>/img/pins/pin<?php echo $i;?>.svg",
+            title: '<?php echo addslashes($stop->name)?>'
+          });
+
+          <?php endwhile;?>
+
+          map.fitBounds(bounds, {top:30, bottom:200, right:20,left:20});
+
+          <?php $i=0; while ($i<count($data->walks)): $walk = $data->walks[$i]; $i++; ?>
+
+          var decodedPath = google.maps.geometry.encoding.decodePath('<?php echo addslashes($walk->encodedPolyline)?>');
+          var path = new google.maps.Polyline({
+            path: decodedPath,
+            strokeColor: "#9384AF",
+            strokeOpacity: 1.0,
+            strokeWeight: 8,
+            map: map
+          });
+
+          <?php endwhile;?>
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaT5xMKjXBGYi8vAKZO8qkxMPHY0CDTFk&libraries=geometry&callback=initMap"
+      async defer></script>
+
+      <!-- <div class="c-content-tour--map-visual" style="background-image: url(<?php echo $mapImage["url"];?>)"></div> -->
+
+          <?php
+
+          // check if the repeater field has rows of data
+          if( count($data->stops) > 0 ):?>
+
+            <ul class="c-stop-slider--container">
 
             <?php $i=0; while ($i<count($data->stops)): $stop = $data->stops[$i]; $i++; ?>
 
-            stopLatLng = new google.maps.LatLng({lat: parseFloat(<?php echo $stop->latitude?>), lng: parseFloat(<?php echo $stop->longitude?>)});
+                <li class="c-stop-slider--stop js-slide-single">
 
-            bounds.extend(stopLatLng);
-
-            var marker = new google.maps.Marker({
-              position: stopLatLng,
-              map: map,
-              icon: "<?php echo get_bloginfo('template_directory'); ?>/img/pins/pin<?php echo $i;?>.svg",
-              title: '<?php echo addslashes($stop->name)?>'
-            });
-
-            <?php endwhile;?>
-
-            map.fitBounds(bounds, {top:30, bottom:200, right:20,left:20});
-
-            <?php $i=0; while ($i<count($data->walks)): $walk = $data->walks[$i]; $i++; ?>
-
-            var decodedPath = google.maps.geometry.encoding.decodePath('<?php echo addslashes($walk->encodedPolyline)?>');
-            var path = new google.maps.Polyline({
-              path: decodedPath,
-              strokeColor: "#9384AF",
-              strokeOpacity: 1.0,
-              strokeWeight: 8,
-              map: map
-            });
-
-            <?php endwhile;?>
-          }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaT5xMKjXBGYi8vAKZO8qkxMPHY0CDTFk&libraries=geometry&callback=initMap"
-        async defer></script>
-
-        <!-- <div class="c-content-tour--map-visual" style="background-image: url(<?php echo $mapImage["url"];?>)"></div> -->
-
-            <?php
-
-            // check if the repeater field has rows of data
-            if( count($data->stops) > 0 ):?>
-
-              <ul class="c-stop-slider--container">
-
-              <?php $i=0; while ($i<count($data->stops)): $stop = $data->stops[$i]; $i++; ?>
-
-                  <li class="c-stop-slider--stop js-slide-single">
-
-                  <div class="c-stop-slider--stop-image-container">
-                    <div class="c-stop-slider--stop-details">
-                      <div class="c-stop-slider--stop-number--container">
-                        <div class="c-stop-slider--stop-number"><?php echo $i;?></div>
-                        <div class="c-stop-slider--stop-number-circle"></div>
-                      </div>
-                      <div class="c-stop-slider--stop-name"><?php echo $stop->name;?></div>
+                <div class="c-stop-slider--stop-image-container">
+                  <div class="c-stop-slider--stop-details">
+                    <div class="c-stop-slider--stop-number--container">
+                      <div class="c-stop-slider--stop-number"><?php echo $i;?></div>
+                      <div class="c-stop-slider--stop-number-circle"></div>
                     </div>
-
-                    <div class="c-hero-tour--overlay-gradient"></div>
-
-                    <img class="c-stop-slider--stop-image" src="https://yourtourservice.azurewebsites.net/api/image/<?php echo $stop->cover->imageId;?>"/>
-
+                    <div class="c-stop-slider--stop-name"><?php echo $stop->name;?></div>
                   </div>
 
-                  <div class="c-stop-slider--stop-summary"><?php echo $stop->description;?></div>
+                  <div class="c-hero-tour--overlay-gradient"></div>
 
-                  </li>
+                  <img class="c-stop-slider--stop-image" src="https://yourtourservice.azurewebsites.net/api/image/<?php echo $stop->cover->imageId;?>"/>
 
-                <?php endwhile;
+                </div>
 
-            else :
+                <div class="c-stop-slider--stop-summary"><?php echo $stop->description;?></div>
 
-                // no rows found
+                </li>
 
-            endif;
+              <?php endwhile;
 
-            ?>
-        </ul>
+          else :
 
-      </div>
+              // no rows found
+
+          endif;
+
+          ?>
+      </ul>
 
     </div>
 
+    </div>
   </section>
 
   <section class="c-content-tour--reviews">
@@ -329,7 +345,6 @@
             <div class="c-content-tour--review-count"><?php $reviewCount = is_null($data->numberOfReviews) ? 0 : $data->numberOfReviews; echo $reviewCount ?> reviews</div>
           </div>
         </div>
-
 
         <?php
 
@@ -385,7 +400,6 @@
 
     </div>
 
-
   </section>
 
   <section class="c-content-tour--copyright-credits">
@@ -412,4 +426,4 @@
 
   </body>
 
-  <?php get_footer('alt'); ?>
+  <?php get_footer('tour'); ?>

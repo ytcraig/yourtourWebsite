@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="168px" height="323px" viewBox="0 0 168 323" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>lines-2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop---1440" transform="translate(0.000000, -1816.000000)">
+            <g id="section-2" transform="translate(-61.000000, 1301.000000)">
+                <g id="lines-2" transform="translate(0.000000, 523.000000)">
+                    <path d="M37.5,159.5 L119.5,241.5" id="Path-7" stroke="#594383" stroke-width="15" stroke-linejoin="round"></path>
+                    <polyline id="Path-5" stroke="#22BFB3" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" points="42 26.5 83.25 67.75 150.75 0.25 221.5 71 21.5 271"></polyline>
+                    <polyline id="Path-6" stroke="#F26668" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" points="15.5 75 83 7.5 149 73.5 87.25 135.25 158.25 206.25 44.25 320.25"></polyline>
+                    <path d="M75,18.1066017 L12.8033009,80.3033009 C9.87436867,83.232233 5.12563133,83.232233 2.19669914,80.3033009 C-0.732233047,77.3743687 -0.732233047,72.6256313 2.19669914,69.6966991 L69.6966991,2.19669914 C72.6256313,-0.732233047 77.3743687,-0.732233047 80.3033009,2.19669914 L146.303301,68.1966991 C149.232233,71.1256313 149.232233,75.8743687 146.303301,78.8033009 L89.8566017,135.25 L155.553301,200.946699 C158.482233,203.875631 158.482233,208.624369 155.553301,211.553301 L41.5533009,325.553301 C38.6243687,328.482233 33.8756313,328.482233 30.9466991,325.553301 C28.017767,322.624369 28.017767,317.875631 30.9466991,314.946699 L139.643398,206.25 L73.9466991,140.553301 C71.017767,137.624369 71.017767,132.875631 73.9466991,129.946699 L130.393398,73.5 L75,18.1066017 Z" id="Path-6-Copy" stroke="#343030" stroke-width="3" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

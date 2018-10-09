@@ -8,145 +8,151 @@ $(document).ready(function () {
 //   console.log('Ive been clicked')
 // })
 
-var accordions = document.getElementsByClassName("accordion-question")
+// Accordions
 
-for (var i = 0; i < accordions.length; i++) {
-  accordions[i].onclick = function() {
-    this.classList.toggle('is-open');
+  var accordions = document.getElementsByClassName("accordion-question")
 
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight) {
-      // accordion is open, we need to close it
-      content.style.maxHeight = null;
-    } else {
-      // accordion is closed
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  }
-}
+  for (var i = 0; i < accordions.length; i++) {
+    accordions[i].onclick = function() {
+      this.classList.toggle('is-open');
 
-var toggleAllButton = document.getElementById('js-toggle-all');
-if(toggleAllButton) {
-  toggleAllButton.addEventListener('click' , function() {
-
-    if(toggleAllButton.classList.contains('expanded')) {
-      // Hide all
-      for (var i = 0; i < accordions.length; i++) {
-        accordions[i].classList.remove('is-open');
-        var content = accordions[i].nextElementSibling;
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        // accordion is open, we need to close it
         content.style.maxHeight = null;
-      }
-      toggleAllButton.classList.remove('expanded');
-      toggleAllButton.innerHTML = 'Expand all';
-    } else {
-      // Open all
-      for (var i = 0; i < accordions.length; i++) {
-        accordions[i].classList.add('is-open');
-        var content = accordions[i].nextElementSibling;
+      } else {
+        // accordion is closed
         content.style.maxHeight = content.scrollHeight + "px";
       }
-      toggleAllButton.classList.add('expanded');
-      toggleAllButton.innerHTML = 'Hide all';
-
     }
-  });
-}
+  }
+
+  var toggleAllButton = document.getElementById('js-toggle-all');
+  if(toggleAllButton) {
+    toggleAllButton.addEventListener('click' , function() {
+
+      if(toggleAllButton.classList.contains('expanded')) {
+        // Hide all
+        for (var i = 0; i < accordions.length; i++) {
+          accordions[i].classList.remove('is-open');
+          var content = accordions[i].nextElementSibling;
+          content.style.maxHeight = null;
+        }
+        toggleAllButton.classList.remove('expanded');
+        toggleAllButton.innerHTML = 'Expand all';
+      } else {
+        // Open all
+        for (var i = 0; i < accordions.length; i++) {
+          accordions[i].classList.add('is-open');
+          var content = accordions[i].nextElementSibling;
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+        toggleAllButton.classList.add('expanded');
+        toggleAllButton.innerHTML = 'Hide all';
+
+      }
+    });
+  }
+
 // SIGN-UP MODALS
 
-// Get modal element
-var modalExplorer = document.getElementById('modal-explorer');
-var modalCreator = document.getElementById('modal-creator');
+  // Get modal element
+    var modalExplorer = document.getElementById('modal-explorer');
+    var modalCreator = document.getElementById('modal-creator');
+    var modalContact = document.getElementById('modal-contact');
 
-// Get open modal button
-var modalBtnExplorer = document.getElementById('button-1');
-var modalBtnCreator = document.getElementById('button-2');
-var modalBtnAltExplorer = document.getElementById('button-1-alt');
-var modalBtnAltCreator = document.getElementById('button-2-alt');
-var modalBtnAltExplorerBottom = document.getElementById('button-1-bottom');
-var modalBtnAltCreatorBottom = document.getElementById('button-2-bottom');
+  // Get open modal button
+    var modalBtnExplorer = document.getElementById('modal-button__explorer');
+    var modalBtnCreator = document.getElementById('modal-button__creator');
+    var modalBtnCreatorBottom = document.getElementById('modal-button-bottom__creator');
+    var modalBtnContact = document.getElementById('modal-button__contact');
 
-// Get close modal button
-var closeBtnExplorer = document.getElementById('modal-close-explorer');
-var closeBtnCreator = document.getElementById('modal-close-creator');
-var closeBtnThanksExplorer = document.getElementById('modal-close-thank-you-explorer');
-var closeBtnThanksCreator = document.getElementById('modal-close-thank-you-creator');
+  // Get close modal button
+    var closeBtnExplorer = document.getElementById('modal-close-explorer');
+    var closeBtnCreator = document.getElementById('modal-close-creator');
+    var closeBtnContact = document.getElementById('modal-close-contact');
 
-// Listen for open click
-if(modalBtnExplorer) {
-  modalBtnExplorer.addEventListener('click', openModalExplorer);
-}
+  // Listen for open click
+    if(modalBtnExplorer) {
+      modalBtnExplorer.addEventListener('click', openModalExplorer);
+    }
 
-if(modalBtnCreator) {
-  modalBtnCreator.addEventListener('click', openModalCreator);
-}
+    if(modalBtnCreator) {
+      modalBtnCreator.addEventListener('click', openModalCreator);
+    }
 
-if(modalBtnAltExplorer) {
-  modalBtnAltExplorer.addEventListener('click', openModalExplorer);
-}
+    if(modalBtnCreatorBottom) {
+      modalBtnCreatorBottom.addEventListener('click', openModalCreator);
+    }
 
-if(modalBtnAltCreator) {
-  modalBtnAltCreator.addEventListener('click', openModalCreator);
-}
+    if(modalBtnContact) {
+      modalBtnContact.addEventListener('click', openModalContact);
+    }
 
-if(modalBtnAltExplorerBottom) {
-  modalBtnAltExplorerBottom.addEventListener('click', openModalExplorer);
-}
+  // Listen for close click
+    if(closeBtnExplorer) {
+      closeBtnExplorer.addEventListener('click', closeModalExplorer);
+    }
 
-if(modalBtnAltCreatorBottom) {
-  modalBtnAltCreatorBottom.addEventListener('click', openModalCreator);
-}
-// Listen for close click
+    if(closeBtnCreator) {
+      closeBtnCreator.addEventListener('click', closeModalCreator);
+    }
 
-if(closeBtnExplorer) {
-  closeBtnExplorer.addEventListener('click', closeModalExplorer);
-}
+    if(closeBtnContact) {
+      closeBtnContact.addEventListener('click', closeModalContact);
+    }
 
-if(closeBtnCreator) {
-  closeBtnCreator.addEventListener('click', closeModalCreator);
-}
+  // Listen for outside click
+    window.addEventListener('click', outsideClick1);
+    window.addEventListener('click', outsideClick2);
 
-if(closeBtnThanksExplorer) {
-  closeBtnThanksExplorer.addEventListener('click', closeModalExplorer);
-}
+  // function to open modal
+    function openModalExplorer() {
+      modalExplorer.classList.add("active");
+      console.log('Yes');
+    }
 
-if(closeBtnThanksCreator) {
-  closeBtnThanksCreator.addEventListener('click', closeModalCreator);
-}
+    function openModalCreator() {
+      modalCreator.classList.add("active");
+      console.log('Yes');
+    }
 
-// Listen for outside click
-window.addEventListener('click', outsideClick1);
-window.addEventListener('click', outsideClick2);
+    function openModalContact() {
+      modalContact.classList.add("active");
+      console.log('Yes');
+    }
 
-// function to open modal
-function openModalExplorer() {
-  modalExplorer.classList.add("active");
-  console.log('Yes');
+  // function to close modal
+    function closeModalExplorer() {
+      modalExplorer.classList.remove("active");
+    }
 
-}
-function openModalCreator() {
-  modalCreator.classList.add("active");
-  console.log('Yes');
-}
+    function closeModalCreator() {
+      modalCreator.classList.remove("active");
+    }
 
-// function to close modal
-function closeModalExplorer() {
-  modalExplorer.classList.remove("active");
-}
-function closeModalCreator() {
-  modalCreator.classList.remove("active");
-}
+    function closeModalContact() {
+      modalContact.classList.remove("active");
+    }
 
-// function to close modal on outside click
-function outsideClick1(e) {
-  if(e.target == modalExplorer) {
-    modalExplorer.style.display = "none";
-  }
-}
-function outsideClick2(e) {
-  if(e.target == modalCreator) {
-    modalCreator.style.display = "none";
-  }
-}
+  // function to close modal on outside click
+    function outsideClick1(e) {
+      if(e.target == modalExplorer) {
+        modalExplorer.classList.remove("active");
+      }
+    }
+
+    function outsideClick2(e) {
+      if(e.target == modalCreator) {
+        modalCreator.classList.remove("active");
+      }
+    }
+
+    function outsideClick2(e) {
+      if(e.target == modalContact) {
+        modalContact.classList.remove("active");
+      }
+    }
 
 // Share Tour Modal //
 
@@ -195,7 +201,7 @@ function outsideClick3(e) {
 $(window).bind('scroll', function () {
 
   var cta = document.getElementById('tour-page-sticky-cta');
-  var ctaHeight = $(window).height() - 280;
+  var ctaHeight = $(window).height() - 210;
   if($(window).scrollTop() > ctaHeight) {
       cta.classList.add('fixed');
   }
@@ -348,5 +354,17 @@ $(document).ready(function(){
       activeClass: 'review-pagination--active'
   });
 })
+
+// Hambuger Menu Animation & Function
+
+$(document).ready(function(){
+
+  $('.hamburger-menu-container').click(function(){
+    $('.hamburger-menu-container').toggleClass('active');
+    $('.menu-overlay').toggleClass('active');
+    $('body,html').toggleClass('hidden');
+  })
+
+});
 
 })(jQuery)
