@@ -214,7 +214,7 @@
           </div>
 
           <div class="section-content__button-centered">
-            <a class="o-button o-button__green" href="<?php echo get_permalink( 254 ); ?>" target="_blank">See more tours</a>
+            <a class="o-button o-button__green" href="<?php echo get_permalink( 254 ); ?>">See more tours</a>
           </div>
 
         </div>

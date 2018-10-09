@@ -81,6 +81,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -97,6 +98,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -113,6 +115,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -129,6 +132,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -153,6 +157,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -169,6 +174,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -185,6 +191,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -201,6 +208,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -217,6 +225,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -233,6 +242,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -249,6 +259,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -302,6 +313,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -318,6 +330,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -334,6 +347,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -350,6 +364,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -366,6 +381,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -382,6 +398,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -398,6 +415,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -422,6 +440,7 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
@@ -438,6 +457,24 @@
                     </div>
                   </div>
                   <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="explore__single-tour-outer-container">
+              <div class="explore__single-tour-padding-container">
+                <div class="explore__single-tour-inner-container">
+                  <div class="section-tour-example-text__container">
+                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
+                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
+                    <div class="section-tour-example-reviews__container">
+                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
+                      <p class="section-tour-example_review-text">5 reviews</p>
+                    </div>
+                  </div>
+                  <div class="section-tour-example__gradient"></div>
+                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                 </div>
               </div>
             </div>
