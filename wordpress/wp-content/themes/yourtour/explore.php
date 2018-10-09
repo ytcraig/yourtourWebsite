@@ -2,6 +2,15 @@
 
   <?php get_header('alt'); ?>
 
+  <?php
+    $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/discover?lat=51.48&lon=0&range=20000" );
+    if( is_wp_error( $request ) ) {
+      return false; // Bail early
+    }
+    $body = wp_remote_retrieve_body( $request );
+    $data = json_decode( $body );
+  ?>
+
     <div class="explore__hero-container">
 
         <div class="container-main">
@@ -62,6 +71,43 @@
       </div>
 
       <div class="container-main">
+
+        <?php $tours = $data->tours; ?>
+        <?php $i=0; while ($i<count($data->sections)): $section = $data->sections[$i]; $i++; ?>
+
+          <h3 class="explore__tour-category"><?php echo $section->title;?></h3>
+            <div class="explore__tours-outer-container">
+              <div class="explore__tours-inner-container">
+
+                <?php $j=0; while ($j<count($section->tourVersionIds)): $tourId = $section->tourVersionIds[$j]; $j++; ?>
+                  <?php $key = array_search($tourId, array_column($tours, 'id')); $tour = $tours[$key]; ?>
+                  <div class="explore__single-tour-outer-container">
+                    <div class="explore__single-tour-padding-container">
+                      <div class="explore__single-tour-inner-container">
+                        <div class="section-tour-example-text__container">
+                          <p class="section-tour-example__title"><?php echo $tour->name;?></p>
+                          <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
+                          <div class="section-tour-example-reviews__container">
+                            <div class="section-tour-example__review-stars">
+                              <?php $avgRating = is_null($tour->averageRating) ? 0 : $tour->averageRating; echo do_shortcode("[usr $avgRating]"); ?>
+                            </div>
+                            <p class="section-tour-example_review-text"><?php $reviewCount = is_null($tour->numberOfReviews) ? 0 : $tour->numberOfReviews; echo $reviewCount ?> reviews</p>
+                          </div>
+                        </div>
+                        <div class="section-tour-example__gradient"></div>
+                        <img class="section-tour-example__img" src="https://yourtourservice.azurewebsites.net/api/image/<?php echo $tour->cover->imageId;?>">
+                      </div>
+                    </div>
+                  </div>
+                <?php endwhile;?>
+
+              </div>
+          </div>
+
+        <?php endwhile;?>
+
+
+
 
         <h3 class="explore__tour-category">Most Popular</h3>
 
