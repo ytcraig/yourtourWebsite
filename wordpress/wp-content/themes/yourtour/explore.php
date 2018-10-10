@@ -3,7 +3,7 @@
   <?php get_header('alt'); ?>
 
   <?php
-    $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/discover?lat=51.48&lon=0&range=20000" );
+    $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/discover-web?range=50000" );
     if( is_wp_error( $request ) ) {
       return false; // Bail early
     }
@@ -83,7 +83,7 @@
                   <?php $key = array_search($tourId, array_column($tours, 'id')); $tour = $tours[$key]; ?>
                   <div class="explore__single-tour-outer-container">
                     <div class="explore__single-tour-padding-container">
-                      <div class="explore__single-tour-inner-container">
+                      <a class="explore__single-tour-inner-container" href="https://goyourtour.com/<?php echo $tour->slug;?>">
                         <div class="section-tour-example-text__container">
                           <p class="section-tour-example__title"><?php echo $tour->name;?></p>
                           <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
