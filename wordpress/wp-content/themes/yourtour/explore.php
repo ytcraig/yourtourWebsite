@@ -3,7 +3,7 @@
   <?php get_header('alt'); ?>
 
   <?php
-    $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/discover?lat=51.48&lon=0&range=20000" );
+    $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/discover-web?range=50000" );
     if( is_wp_error( $request ) ) {
       return false; // Bail early
     }
@@ -80,13 +80,14 @@
 
           <h3 class="explore__tour-category"><?php echo $section->title;?></h3>
             <div class="explore__tours-outer-container">
-              <a class="explore__tours-inner-container" href="<?php echo get_permalink( 120 ); ?>" target="_blank">
+              <div class="explore__tours-inner-container">
 
                 <?php $j=0; while ($j<count($section->tourVersionIds)): $tourId = $section->tourVersionIds[$j]; $j++; ?>
                   <?php $key = array_search($tourId, array_column($tours, 'id')); $tour = $tours[$key]; ?>
                   <div class="explore__single-tour-outer-container">
                     <div class="explore__single-tour-padding-container">
                       <div class="explore__single-tour-inner-container">
+                        <a href="https://goyourtour.com/<?php echo $tour->slug;?>">
                         <div class="section-tour-example-text__container">
                           <p class="section-tour-example__title"><?php echo $tour->name;?></p>
                           <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
@@ -99,442 +100,42 @@
                         </div>
                         <div class="section-tour-example__gradient"></div>
                         <img class="section-tour-example__img" src="https://yourtourservice.azurewebsites.net/api/image/<?php echo $tour->cover->imageId;?>">
+                      </a>
                       </div>
-                    </div>
                   </div>
-                <?php endwhile;?>
+                </div>
+                    <?php endwhile;?>
+              </div>
+            </div>
+            <?php if( $i == 2 ):?>
+      </div>
 
-              </a>
+            </div>
+          </div>
+          <div class="explore__create-cta__container">
+            <div class="container-main">
+              <div class="text-container">
+                <h3 class="white-text">Want to create a tour of your own?</h3>
+                <p class="white-text">Creating a YourTour is fun, easy and simple. Register for free for exclusive access to the Creator app.</p>
+              </div>
+              <div class="section-content__button-centered no-margin">
+                <button id="modal-button-bottom__creator" class="o-button o-button__white purple-text">Get started</button>
+              </div>
+            </div>
           </div>
 
-        <?php endwhile;?>
 
-
-
-
-        <h3 class="explore__tour-category">Most Popular</h3>
-
-        <div class="explore__tours-outer-container">
-
-          <div class="explore__tours-inner-container">
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
+          <div class="explore__all-tours-container overflow-hidden extra-padding-btm__40">
+            <div class="explore__lines-right">
+              <img src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-lines-right.svg">
             </div>
+            <div class="container-main">
+            <?php endif; ?>
 
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-        </div>
-        </div>
-
-        <h3 class="explore__tour-category">London</h3>
-        <div class="explore__tours-outer-container">
-
-          <div class="explore__tours-inner-container">
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
+          <?php endwhile;?>
           </div>
-
         </div>
 
-      </div>
-
-    </div>
-
-    <div class="explore__create-cta__container">
-
-      <div class="container-main">
-
-        <div class="text-container">
-          <h3 class="white-text">Want to create a tour of your own?</h3>
-          <p class="white-text">Creating a YourTour is fun, easy and simple. Register for free for exclusive access to the Creator app.</p>
-        </div>
-        <div class="section-content__button-centered no-margin">
-          <button id="modal-button-bottom__creator" class="o-button o-button__white purple-text">Get started</button>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="explore__all-tours-container overflow-hidden extra-padding-btm__40">
-
-      <div class="explore__lines-right">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-lines-right.svg">
-      </div>
-
-      <div class="container-main">
-
-        <h3 class="explore__tour-category">Rest of UK</h3>
-        <div class="explore__tours-outer-container">
-
-          <div class="explore__tours-inner-container">
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-        </div>
-        </div>
-
-        <h3 class="explore__tour-category">Europe</h3>
-        <div class="explore__tours-outer-container">
-
-          <div class="explore__tours-inner-container">
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="explore__single-tour-outer-container">
-              <div class="explore__single-tour-padding-container">
-                <div class="explore__single-tour-inner-container">
-                  <div class="section-tour-example-text__container">
-                    <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
-                    <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
-                    <div class="section-tour-example-reviews__container">
-                      <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
-                      <p class="section-tour-example_review-text">5 reviews</p>
-                    </div>
-                  </div>
-                  <div class="section-tour-example__gradient"></div>
-                  <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
 
     <div class="explore__download-cta__container">
 

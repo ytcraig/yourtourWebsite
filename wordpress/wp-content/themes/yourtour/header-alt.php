@@ -69,7 +69,7 @@
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
           </a>
           <div class="global-nav-items__container">
-            <a class="global-nav-item" href="<?php echo get_permalink( 254 ); ?>">Explore the tours</a></li>
+            <a class="global-nav-item" href="<?php echo get_permalink( 339 ); ?>">Explore the tours</a></li>
             <a class="global-nav-item" href="<?php echo get_permalink( 64 ); ?>" target="_blank">Help</a></li>
             <button id="modal-button__contact" class="o-button o-button__green">Get in touch</button>
           </div>
@@ -87,7 +87,7 @@
               <ul>
                 <li><a href="<?php echo get_permalink( 56 ); ?>">Home</a></li>
                 <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
-                <li><a href="<?php echo get_permalink( 254 ); ?>">Explore the Tours</a></li>
+                <li><a href="<?php echo get_permalink( 339 ); ?>">Explore the Tours</a></li>
                 <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
                 <li class="mobile-nav__btn"><button id="modal-button-mob__contact" class="o-button o-button__green">Get in touch</button></li>
               </ul>

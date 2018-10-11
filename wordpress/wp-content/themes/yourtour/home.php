@@ -11,7 +11,7 @@
               <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.svg">
             </a>
             <div class="hero__nav-items">
-              <a class="hero__nav-item" href="<?php echo get_permalink( 254 ); ?>">Explore the tours</a></li>
+              <a class="hero__nav-item" href="<?php echo get_permalink( 339 ); ?>">Explore the tours</a></li>
               <a class="hero__nav-item" href="<?php echo get_permalink( 64 ); ?>" target="_blank">Help</a></li>
               <button id="modal-button__contact" class="o-button o-button__white">Get in touch</button>
 
@@ -30,7 +30,7 @@
                 <ul>
                   <li><a href="<?php echo get_permalink( 56 ); ?>">Home</a></li>
                   <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
-                  <li><a href="<?php echo get_permalink( 254 ); ?>">Explore the Tours</a></li>
+                  <li><a href="<?php echo get_permalink( 339 ); ?>">Explore the Tours</a></li>
                   <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
                   <li class="mobile-nav__btn"><button id="modal-button-mob__contact" class="o-button o-button__green">Get in touch</button></li>
                 </ul>
@@ -95,8 +95,8 @@
         <div class="section-content__container">
 
           <div class="section-phone__container">
-            <video src="<?php echo get_bloginfo('template_directory'); ?>/video/YT_App_Animation_without_Hand.mp4" autoplay loop>
-            </video>
+            <!-- <video src="<?php echo get_bloginfo('template_directory'); ?>/video/YT_App_Animation_without_Hand.mp4" type="video/mp4" autoplay loop>
+            </video> -->
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/section-one-phone.png">
           </div>
           <div class="section-text__container">
@@ -170,6 +170,7 @@
               <div class="explore__single-tour-outer-container">
                 <div class="explore__single-tour-padding-container">
                   <div class="explore__single-tour-inner-container">
+                    <a href="<?php echo get_permalink( 306 ); ?>">
                     <div class="section-tour-example-text__container">
                       <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
                       <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
@@ -180,6 +181,7 @@
                     </div>
                     <div class="section-tour-example__gradient"></div>
                     <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
+                  </a>
                   </div>
                 </div>
               </div>
@@ -187,8 +189,9 @@
               <div class="explore__single-tour-outer-container">
                 <div class="explore__single-tour-padding-container">
                   <div class="explore__single-tour-inner-container">
+                    <a href="<?php echo get_permalink( 312 ); ?>">
                     <div class="section-tour-example-text__container">
-                      <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
+                      <p class="section-tour-example__title">A Monastic Tour of Croxden Abbey</p>
                       <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
                       <div class="section-tour-example-reviews__container">
                         <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
@@ -196,7 +199,8 @@
                       </div>
                     </div>
                     <div class="section-tour-example__gradient"></div>
-                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
+                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/croxden.jpg">
+                  </a>
                   </div>
                 </div>
               </div>
@@ -204,8 +208,9 @@
               <div class="explore__single-tour-outer-container">
                 <div class="explore__single-tour-padding-container">
                   <div class="explore__single-tour-inner-container">
+                    <a href="<?php echo get_permalink( 320 ); ?>">
                     <div class="section-tour-example-text__container">
-                      <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
+                      <p class="section-tour-example__title">Quorn - Exploring Meeting Street of Yesterday</p>
                       <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
                       <div class="section-tour-example-reviews__container">
                         <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
@@ -213,7 +218,8 @@
                       </div>
                     </div>
                     <div class="section-tour-example__gradient"></div>
-                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
+                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/quorn-2.jpg">
+                  </a>
                   </div>
                 </div>
               </div>
@@ -221,8 +227,9 @@
               <div class="explore__single-tour-outer-container">
                 <div class="explore__single-tour-padding-container">
                   <div class="explore__single-tour-inner-container">
+                    <a href="<?php echo get_permalink( 328 ); ?>">
                     <div class="section-tour-example-text__container">
-                      <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
+                      <p class="section-tour-example__title">Discover Brighton's Cultural Quarter</p>
                       <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
                       <div class="section-tour-example-reviews__container">
                         <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
@@ -230,7 +237,8 @@
                       </div>
                     </div>
                     <div class="section-tour-example__gradient"></div>
-                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
+                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/brighton.jpg">
+                  </a>
                   </div>
                 </div>
               </div>
@@ -239,7 +247,7 @@
           </div>
 
           <div class="section-content__button-centered">
-            <a class="o-button o-button__green" href="<?php echo get_permalink( 254 ); ?>">See more tours</a>
+            <a class="o-button o-button__green" href="<?php echo get_permalink( 339 ); ?>">See more tours</a>
           </div>
 
         </div>
