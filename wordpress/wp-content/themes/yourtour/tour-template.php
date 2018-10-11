@@ -14,7 +14,7 @@
     $body = wp_remote_retrieve_body( $request );
     $data = json_decode( $body );
 
-    $reviewsRequest = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/reviews/tour/$tourId" );
+    $reviewsRequest = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/reviews/tour/$data->id" );
     if( is_wp_error( $reviewsRequest ) ) {
       return false; // Bail early
     }
