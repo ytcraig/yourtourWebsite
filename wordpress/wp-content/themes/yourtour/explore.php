@@ -17,8 +17,11 @@
 
           <div class="explore-hero__title">
               <div class="explore-hero__text-container">
-                <h1 class="explore-hero__heading">Lorem ipsum dolor sit amet</h1>
-                <h3 class="explore-hero__sub-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit.</h3>
+                <div class="explore-hero__typed-container">
+                  <h1 class="explore-hero__heading">Discover and explore</h1>
+                  <h1 class="explore-hero__typed-element"></h1>
+                </div>
+                <h3 class="explore-hero__sub-heading">With tours live in the UK and across Europe and dozens more currently being created, there’s already lots to explore on the YourTour platform.</h3>
               </div>
           </div>
         </div>
@@ -77,7 +80,7 @@
 
           <h3 class="explore__tour-category"><?php echo $section->title;?></h3>
             <div class="explore__tours-outer-container">
-              <div class="explore__tours-inner-container">
+              <a class="explore__tours-inner-container" href="<?php echo get_permalink( 120 ); ?>" target="_blank">
 
                 <?php $j=0; while ($j<count($section->tourVersionIds)): $tourId = $section->tourVersionIds[$j]; $j++; ?>
                   <?php $key = array_search($tourId, array_column($tours, 'id')); $tour = $tours[$key]; ?>
@@ -101,7 +104,7 @@
                   </div>
                 <?php endwhile;?>
 
-              </div>
+              </a>
           </div>
 
         <?php endwhile;?>
@@ -324,7 +327,7 @@
 
         <div class="text-container">
           <h3 class="white-text">Want to create a tour of your own?</h3>
-          <p class="white-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis mauris, lobortis venenatis vestibulum sit amet, aliquet nec ligula.</p>
+          <p class="white-text">Creating a YourTour is fun, easy and simple. Register for free for exclusive access to the Creator app.</p>
         </div>
         <div class="section-content__button-centered no-margin">
           <button id="modal-button-bottom__creator" class="o-button o-button__white purple-text">Get started</button>
@@ -541,7 +544,7 @@
 
           <div class="text-container">
             <h2 class="white-text">Ready to start exploring?</h2>
-            <p class="white-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis mauris, lobortis venenatis vestibulum sit amet, aliquet nec ligula.</p>
+            <p class="white-text">Simply download the YourTour Explorer App from the iOS App Store, choose a tour near you and get exploring!</p>
             <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">
               <img src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg">
             </a>

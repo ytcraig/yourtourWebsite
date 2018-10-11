@@ -60,15 +60,20 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/slick.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/paginate.js"></script>
-    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/scripts.js"></script>
+    <!-- <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/paginate.js"></script>
+    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/scripts.js"></script> -->
 
     <section class="help-center__section">
 
       <header>
         <div class="container-main">
           <div class="nav">
-            <a href="<?php echo get_permalink( 56 ); ?>"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.svg"></a>
+            <a href="<?php echo get_permalink( 56 ); ?>">
+              <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
+            </a>
+            <div class="global-nav-items__container">
+              <button id="modal-button__contact" class="o-button o-button__green">Get in touch</button>
+            </div>
           </div>
         </div>
       </header>

@@ -16,6 +16,26 @@
               <button id="modal-button__contact" class="o-button o-button__white">Get in touch</button>
 
             </div>
+
+            <div class="hamburger-menu-container">
+              <div class="hamburger-icon"></div>
+            </div>
+
+              <div class="menu-overlay">
+                <div class="container-main">
+                  <a href="<?php echo get_permalink( 56 ); ?>">
+                    <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
+                  </a>
+                </div>
+                <ul>
+                  <li><a href="<?php echo get_permalink( 56 ); ?>">Home</a></li>
+                  <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
+                  <li><a href="<?php echo get_permalink( 254 ); ?>">Explore the Tours</a></li>
+                  <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
+                  <li class="mobile-nav__btn"><button id="modal-button-mob__contact" class="o-button o-button__green">Get in touch</button></li>
+                </ul>
+              </div>
+
           </div>
 
           <div class="hero-text-container">
@@ -81,7 +101,8 @@
           </div>
           <div class="section-text__container">
             <h2 class="section-heading">Create. Engage. Amaze.</h2>
-            <p class="intro-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis mauris, lobortis venenatis vestibulum sit amet, aliquet nec ligula. Etiam a nunc luctus, finibus elit vel, pulvinar dui.</p>
+            <p class="intro-copy">Creating a YourTour is fun, easy and simple. Whether you're an organisation wishing to attract and engage visitors, or an individual looking to monetise your knowledge, the YourTour platform enables you to bring the world to life via unique GPS-guided audio walks by the person who knows them best – you.</p>
+            <button id="modal-button__creator__2" class="o-button o-button__purple">Create a tour for free</button>
           </div>
 
         </div>
@@ -158,6 +179,7 @@
                       </div>
                     </div>
                     <div class="section-tour-example__gradient"></div>
+                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                   </div>
                 </div>
               </div>
@@ -174,6 +196,7 @@
                       </div>
                     </div>
                     <div class="section-tour-example__gradient"></div>
+                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                   </div>
                 </div>
               </div>
@@ -190,6 +213,7 @@
                       </div>
                     </div>
                     <div class="section-tour-example__gradient"></div>
+                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                   </div>
                 </div>
               </div>
@@ -206,6 +230,7 @@
                       </div>
                     </div>
                     <div class="section-tour-example__gradient"></div>
+                    <img class="section-tour-example__img" src="<?php echo get_bloginfo('template_directory'); ?>/img/bucks-pal-hero.jpg">
                   </div>
                 </div>
               </div>

@@ -2,6 +2,25 @@
 
 <?php get_header('help'); ?>
 
+      <div id="modal-contact" class="o-modal">
+        <div class="modal-contact-content">
+          <div class="modal-form">
+            <span id="modal-close-contact">x</span>
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+              portalId: "4733551",
+              formId: "2b9a8f5e-d282-43df-9e7f-c5d1ed876f42"
+            });
+            </script>
+          </div>
+
+        </div>
+      </div>
+    
       <div class="help-center__content-container">
 
         <div class="container-main">

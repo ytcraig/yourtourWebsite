@@ -60,14 +60,13 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/slick.min.js"></script>
-    <!-- <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/paginate.js"></script> -->
-    <!-- <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/scripts.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script> -->
     <header>
       <div class="container-main">
 
         <div class="nav">
           <a href="<?php echo get_permalink( 56 ); ?>">
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.svg">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
           </a>
           <div class="global-nav-items__container">
             <a class="global-nav-item" href="<?php echo get_permalink( 254 ); ?>">Explore the tours</a></li>
@@ -80,12 +79,17 @@
           </div>
 
             <div class="menu-overlay">
+              <div class="container-main">
+                <a href="<?php echo get_permalink( 56 ); ?>">
+                  <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
+                </a>
+              </div>
               <ul>
                 <li><a href="<?php echo get_permalink( 56 ); ?>">Home</a></li>
-                <li><a href="#">Download the App</a></li>
+                <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
                 <li><a href="<?php echo get_permalink( 254 ); ?>">Explore the Tours</a></li>
                 <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
-                <li><a href="#">Get in touch</a></li>
+                <li class="mobile-nav__btn"><button id="modal-button-mob__contact" class="o-button o-button__green">Get in touch</button></li>
               </ul>
             </div>
 

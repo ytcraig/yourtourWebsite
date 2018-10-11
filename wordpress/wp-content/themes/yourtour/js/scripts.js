@@ -64,8 +64,10 @@ $(document).ready(function () {
   // Get open modal button
     var modalBtnExplorer = document.getElementById('modal-button__explorer');
     var modalBtnCreator = document.getElementById('modal-button__creator');
+    var modalBtnCreator2 = document.getElementById('modal-button__creator__2');
     var modalBtnCreatorBottom = document.getElementById('modal-button-bottom__creator');
     var modalBtnContact = document.getElementById('modal-button__contact');
+    var modalBtnMobContact = document.getElementById('modal-button-mob__contact');
 
   // Get close modal button
     var closeBtnExplorer = document.getElementById('modal-close-explorer');
@@ -81,12 +83,20 @@ $(document).ready(function () {
       modalBtnCreator.addEventListener('click', openModalCreator);
     }
 
+    if(modalBtnCreator2) {
+      modalBtnCreator2.addEventListener('click', openModalCreator);
+    }
+
     if(modalBtnCreatorBottom) {
       modalBtnCreatorBottom.addEventListener('click', openModalCreator);
     }
 
     if(modalBtnContact) {
       modalBtnContact.addEventListener('click', openModalContact);
+    }
+
+    if(modalBtnMobContact) {
+      modalBtnMobContact.addEventListener('click', openModalContact);
     }
 
   // Listen for close click
@@ -201,14 +211,19 @@ function outsideClick3(e) {
 $(window).bind('scroll', function () {
 
   var cta = document.getElementById('tour-page-sticky-cta');
-  var ctaHeight = $(window).height() - 210;
+  var info = document.getElementById('tour__sticky-content__info');
+  var ctaHeight = $(window).height() - 230;
   if($(window).scrollTop() > ctaHeight) {
+
       cta.classList.add('fixed');
+      info.classList.add('active');
   }
 
   else {
 
     $(cta.classList.remove('fixed'));
+    $(info.classList.remove('active'));
+
   }
 
 
@@ -364,6 +379,19 @@ $(document).ready(function(){
     $('.menu-overlay').toggleClass('active');
     $('body,html').toggleClass('hidden');
   })
+
+});
+
+// Typed JS
+
+$(document).ready(function(){
+
+  var typed = new Typed('.explore-hero__typed-element', {
+    strings: ["London", "Manchester", "Oxford", "Brighton", "Quorn", "Bonn", "Lisbon"],
+    typeSpeed: 100,
+    backSpeed: 50,
+    loop: true,
+  });
 
 });
 
