@@ -13,7 +13,7 @@
             <div class="hero__nav-items">
               <a class="hero__nav-item" href="<?php echo get_permalink( 339 ); ?>">Explore the tours</a></li>
               <a class="hero__nav-item" href="<?php echo get_permalink( 64 ); ?>" target="_blank">Help</a></li>
-              <button id="modal-button__contact" class="o-button o-button__white">Get in touch</button>
+              <button class="o-button o-button__white contact-button-modal">Get in touch</button>
 
             </div>
 
@@ -32,7 +32,7 @@
                   <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
                   <li><a href="<?php echo get_permalink( 339 ); ?>">Explore the Tours</a></li>
                   <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
-                  <li class="mobile-nav__btn"><button id="modal-button-mob__contact" class="o-button o-button__green">Get in touch</button></li>
+                  <li class="mobile-nav__btn"><button class="o-button o-button__green contact-button-modal">Get in touch</button></li>
                 </ul>
               </div>
 
@@ -41,7 +41,7 @@
           <div class="hero-text-container">
             <h1 class="hero-heading">Explore like never before</h1>
             <h3 class="hero-sub-heading">Create and share engaging, self-guided audio walks for the world to enjoy.</h3>
-            <button id="modal-button__creator" class="o-button o-button__green">Create a tour for free</button>
+            <button class="creator-button-modal o-button o-button__green">Create a tour for free</button>
           </div>
         </div>
 
@@ -95,14 +95,18 @@
         <div class="section-content__container">
 
           <div class="section-phone__container">
-            <!-- <video src="<?php echo get_bloginfo('template_directory'); ?>/video/YT_App_Animation_without_Hand.mp4" type="video/mp4" autoplay loop>
-            </video> -->
+            <div class="section-video">
+
+              <iframe src="https://player.vimeo.com/video/294756240?api=1&autoplay=1&muted=1&loop=1&background=1" width="640" height="1387" frameborder="0"></iframe>
+
+            </div>
+
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/section-one-phone.png">
           </div>
           <div class="section-text__container">
             <h2 class="section-heading">Create. Engage. Amaze.</h2>
             <p class="intro-copy">Creating a YourTour is fun, easy and simple. Whether you're an organisation wishing to attract and engage visitors, or an individual looking to monetise your knowledge, the YourTour platform enables you to bring the world to life via unique GPS-guided audio walks by the person who knows them best – you.</p>
-            <button id="modal-button__creator__2" class="o-button o-button__purple">Create a tour for free</button>
+            <button class="o-button o-button__purple creator-button-modal">Create a tour for free</button>
           </div>
 
         </div>
@@ -172,7 +176,7 @@
                   <div class="explore__single-tour-inner-container">
                     <a href="<?php echo get_permalink( 306 ); ?>">
                     <div class="section-tour-example-text__container">
-                      <p class="section-tour-example__title">A Breif History of Buckingham Palace</p>
+                      <p class="section-tour-example__title">A Brief History of Buckingham Palace</p>
                       <!-- <p class="section-tour-example__categories">Major Sights, Family-friendly, History</p> -->
                       <div class="section-tour-example-reviews__container">
                         <img class="section-tour-example__review-stars" src="<?php echo get_bloginfo('template_directory'); ?>/img/section-three-stars.svg">
@@ -265,7 +269,7 @@
             <h2 class="section-heading white-text">Start creating your tour for free</h2>
           </div>
           <div class="section-content__button-centered no-margin">
-            <button id="modal-button-bottom__creator" class="o-button o-button__white purple-text">Get started</button>
+            <button class="o-button o-button__white purple-text creator-button-modal">Get started</button>
           </div>
 
         </div>

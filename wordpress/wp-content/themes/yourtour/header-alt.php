@@ -50,6 +50,12 @@
     <link href="<?php echo get_bloginfo('template_directory'); ?>/css/style.css" rel="stylesheet">
     <link href="<?php echo get_bloginfo('template_directory'); ?>/css/slick.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" src="<?php echo get_bloginfo('template_directory'); ?>/img/explorer-app-icon.png">
+
+    <meta property="og:url"                content="https://goyourtour.com/<?php echo $tour->slug;?>" />
+    <meta property="og:title"              content="<?php echo $data->name ?>" />
+    <meta property="og:description"        content="<?php echo $data->description?>" />
+    <meta property="og:image"              content="https://yourtourservice.azurewebsites.net/api/image/<?php echo $data->cover->imageId;?>" />
+
     <?php wp_head();?>
   </head>
   <body>
@@ -60,7 +66,6 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/slick.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script> -->
     <header>
       <div class="container-main">
 
@@ -71,7 +76,7 @@
           <div class="global-nav-items__container">
             <a class="global-nav-item" href="<?php echo get_permalink( 339 ); ?>">Explore the tours</a></li>
             <a class="global-nav-item" href="<?php echo get_permalink( 64 ); ?>" target="_blank">Help</a></li>
-            <button id="modal-button__contact" class="o-button o-button__green">Get in touch</button>
+            <button class="o-button o-button__green contact-button-modal">Get in touch</button>
           </div>
 
           <div class="hamburger-menu-container">
@@ -89,7 +94,7 @@
                 <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
                 <li><a href="<?php echo get_permalink( 339 ); ?>">Explore the Tours</a></li>
                 <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
-                <li class="mobile-nav__btn"><button id="modal-button-mob__contact" class="o-button o-button__green">Get in touch</button></li>
+                <li class="mobile-nav__btn"><button class="o-button o-button__green contact-button-modal">Get in touch</button></li>
               </ul>
             </div>
 

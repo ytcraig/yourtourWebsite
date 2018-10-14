@@ -72,7 +72,7 @@
               <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
             </a>
             <div class="global-nav-items__container">
-              <button id="modal-button__contact" class="o-button o-button__green">Get in touch</button>
+              <button class="o-button o-button__green contact-button-modal">Get in touch</button>
             </div>
           </div>
         </div>

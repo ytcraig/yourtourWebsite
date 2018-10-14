@@ -14,7 +14,6 @@ if ( ! is_admin() ) {
   wp_enqueue_script( 'typed', 'https://cdn.jsdelivr.net/npm/typed.js@2.0.9');
 	wp_enqueue_script('paginate.js', get_template_directory_uri() . '/js/paginate.js', true);
 	wp_enqueue_script('main.js', get_template_directory_uri() . '/js/scripts.js', true);
-	// wp_enqueue_script('typed.js', get_template_directory_uri() . '/js/typed.js', true);
 
 
 

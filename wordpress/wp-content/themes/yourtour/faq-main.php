@@ -47,7 +47,11 @@
                   // loop through rows (sub repeater)
                   while( have_rows('accordion') ): the_row();?>
 
-                  <button class="accordion-question"><?php the_sub_field('accordion_question')?></button>
+                  <button class="accordion-question">
+                    <p class="accordion-question__q">Q.</p>
+                    <p class="accordion-question__single-question"><?php the_sub_field('accordion_question')?></p>
+                    <div class="accordion-question__plus-btn"></div>
+                  </button>
                   <div class="accordion-answer">
 
                     <div><?php the_sub_field('accordion_answer')?></div>

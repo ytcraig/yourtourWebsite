@@ -20,7 +20,7 @@
 
         </div>
       </div>
-    
+
       <div class="help-center__content-container">
 
         <div class="container-main">
@@ -29,7 +29,7 @@
 
             <h1 class="help-center__heading">Hello! How can we help?</h1>
             <p class="help-center__intro-text">Welcome to the YourTour Help Center, where you’ll find answers to commonly asked questions.
-            To get started, simple select which app you'd like help with:</p>
+            To get started, simply select which app you'd like help with:</p>
 
             <div class="help-center__app-buttons">
 

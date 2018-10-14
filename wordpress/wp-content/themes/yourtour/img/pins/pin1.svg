@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="27px" viewBox="0 0 25 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+<svg width="26px" height="28px" viewBox="0 0 26 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
     <title>pin1</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <filter x="-21.1%" y="-18.2%" width="142.1%" height="131.8%" filterUnits="objectBoundingBox" id="filter-1">
+        <filter x="-25.0%" y="-21.7%" width="150.0%" height="139.1%" filterUnits="objectBoundingBox" id="filter-1">
             <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
@@ -14,15 +14,11 @@
             </feMerge>
         </filter>
     </defs>
-    <g id="Tour-Path---Add-Guide-Point" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="3.1---Map-View---Add-Guide-Point---Off-of-Path" transform="translate(-138.000000, -395.000000)">
-            <g id="map">
-                <g id="pin1" filter="url(#filter-1)" transform="translate(141.000000, 398.000000)">
-                    <path d="M9.20510447,0 C14.288873,0 18.4099998,4.11778143 18.4099998,9.19778638 C18.4099998,13.6394453 15.2590419,17.3455322 11.0693341,18.2067662 C10.4671604,18.3303373 9.84365959,21.027574 9.20510447,21.027574 C8.57721284,21.027574 7.9637483,18.3324282 7.37119257,18.2128298 C3.16601231,17.3633047 0,13.6498997 0,9.19778638 C0,4.11778143 4.12112684,0 9.20510447,0" id="circle" stroke="#FFFFFF" stroke-width="1.5" fill="#594383"></path>
-                    <text id="1" font-family="Nunito-Bold, Nunito" font-size="13" font-weight="bold" fill="#FFFFFF">
-                        <tspan x="5.35" y="13.25">1</tspan>
-                    </text>
-                </g>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pin1" transform="translate(3.000000, 3.000000)">
+            <g id="1" filter="url(#filter-1)">
+                <path d="M9.68958365,0 C15.040919,0 19.3789472,4.33450677 19.3789472,9.6818804 C19.3789472,14.3573109 16.0621494,18.258455 11.6519307,19.165017 C11.0180635,19.2950919 10.3617469,22.1342884 9.68958365,22.1342884 C9.0286451,22.1342884 8.38289295,19.2972928 7.75915007,19.1713997 C3.33264453,18.2771629 0,14.3683155 0,9.6818804 C0,4.33450677 4.33802825,0 9.68958365,0" id="circle" stroke="#FFFFFF" stroke-width="1.5" fill="#594383"></path>
+                <path d="M12.2493421,12.7 C12.7493446,12.7 12.9993421,12.9124979 12.9993421,13.3375 C12.9993421,13.7791689 12.7493446,14 12.2493421,14 L8.02434211,14 C7.51600623,14 7.26184211,13.7791689 7.26184211,13.3375 C7.26184211,12.9124979 7.51600623,12.7 8.02434211,12.7 L9.32434211,12.7 L9.32434211,7 L8.12434211,7.7375 C8.00767486,7.804167 7.90350923,7.8375 7.81184211,7.8375 C7.63684123,7.8375 7.48892604,7.76250075 7.36809211,7.6125 C7.24725817,7.46249925 7.18684211,7.29583425 7.18684211,7.1125 C7.18684211,6.87083212 7.29517436,6.683334 7.51184211,6.55 L9.44934211,5.35 C9.69934336,5.19999925 9.93684098,5.125 10.1618421,5.125 C10.3951766,5.125 10.5826747,5.19583262 10.7243421,5.3375 C10.8660095,5.47916737 10.9368421,5.67499875 10.9368421,5.925 L10.9368421,12.7 L12.2493421,12.7 Z" fill="#FFFFFF"></path>
             </g>
         </g>
     </g>

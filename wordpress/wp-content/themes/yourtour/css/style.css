@@ -12,8 +12,8 @@ body, h1, h2, h3, h4, h5, h6, a {
 }
 
 p {
-  font-size: 1em;
-  /* equivalent to 16px */
+  font-size: 1.125em;
+  /* equivalent to 18px */
   line-height: 1.5;
   /* equivalent to 24px */
 }
@@ -178,7 +178,7 @@ header {
   color: #22BFB3;
 }
 
-#modal-button__contact {
+.contact-button-modal {
   display: inline-block;
   margin-left: 30px;
 }
@@ -257,11 +257,16 @@ ul.hs-error-msgs {
   margin: auto;
   position: relative;
   top: 50%;
-  transform: translate(0%, -50%);
+  transform: translate(0%, -100%);
   background: white;
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+}
+
+.modal-contact-content.active {
+  transform: translate(0%, -50%);
 }
 
 .hs-button {
@@ -287,11 +292,7 @@ ul.hs-error-msgs {
 }
 
 .submitted-message {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  left: 0;
-  right: 0;
+  position: relative;
 }
 
 .submitted-message p {
@@ -339,7 +340,7 @@ ul.hs-error-msgs {
 
 .hero-sub-heading {
   color: #ffffff;
-  font-weight: 100;
+  font-weight: 400;
   margin: 0;
   margin-bottom: 40px;
   max-width: 560px;
@@ -501,11 +502,16 @@ ul.hs-error-msgs {
   margin: auto;
   position: relative;
   top: 50%;
-  transform: translate(0%, -50%);
+  transform: translate(0%, -100%);
   background: white;
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+}
+
+.modal-creator-content.active {
+  transform: translate(0%, -50%);
 }
 
 .modal-creator-content h3 {
@@ -554,6 +560,7 @@ ul.hs-error-msgs {
   right: 30px;
   top: 18px;
   transition: all 0.2s ease;
+  z-index: 100;
 }
 
 #modal-close-contact {
@@ -564,6 +571,7 @@ ul.hs-error-msgs {
   right: 30px;
   top: 18px;
   transition: all 0.2s ease;
+  z-index: 100;
 }
 
 #modal-close-explorer:hover, #modal-close-creator:hover, #modal-close-contact:hover,
@@ -758,6 +766,32 @@ input.form-button:hover {
   transform: translate(-50%, -50%);
   border: 1px solid #D8D8D8;
   object-fit: fill;
+  overflow: hidden;
+}
+
+.section-video {
+  width: 87%;
+  height: 92%;
+  position: absolute;
+  border-radius: 22px;
+  top: 49.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #D8D8D8;
+  object-fit: fill;
+  overflow: hidden;
+}
+
+.section-video iframe {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+iframe .player.player-tiny .vp-controls {
+  display: none !important;
 }
 
 .section-phone__container img {
@@ -1474,6 +1508,7 @@ button.faq-expand-all:hover {
 
 
 .accordion-question {
+  display: flex;
   width: 100%;
   background-color: white;
   font-weight: 600;
@@ -1492,16 +1527,28 @@ button.faq-expand-all:hover {
   color: #343030;
 }
 
-button.accordion-question::before{
-  content: url('../img/plus-button.svg');
-  float: right;
-  margin-left: 30px;
+p.accordion-question__q {
+  margin: 0px;
+  margin-right: 12px;
 }
 
-button.accordion-question.is-open::before{
+p.accordion-question__single-question {
+  margin: 0px;
+  padding-right: 15px;
+}
+
+.accordion-question__plus-btn {
+  content: url('../img/plus-button.svg');
+  margin-left: auto;
+  position: relative;
+  top: 2px;
+}
+
+button.accordion-question.is-open .accordion-question__plus-btn {
   content: url('../img/minus-button.svg');
-  float: right;
-  margin-left: 30px;
+  margin-left: auto;
+  position: relative;
+  top: 2px;
 }
 
 .accordion-answer {
@@ -1581,12 +1628,17 @@ button.accordion-question.is-open::before{
   margin: 0 auto;
   position: relative;
   top: 50%;
-  transform: translate(0%, -50%);
+  transform: translate(0%, -100%);
   background: white;
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
   z-index: 100000;
+  transition: all 0.4s ease;
+}
+
+.modal-share-tour.active {
+  transform: translate(0%, -50%);
 }
 
 #modal-close-share-tour {
@@ -1829,12 +1881,14 @@ button.accordion-question.is-open::before{
 }
 
 .c-hero-tour--review-stars .usr {
-  height: 17px !important;
+  position: relative;
+  bottom: 2px;
 }
 
 .c-hero-tour--review-count {
   display: inline-block;
   color: white;
+  margin: 0px;
   position: relative;
   margin-left: 8px;
   bottom: 2px;
@@ -1852,6 +1906,7 @@ button.accordion-question.is-open::before{
 .c-hero-tour--time-count {
   display: inline-block;
   color: white;
+  margin: 0px;
   position: relative;
   margin-left: 8px;
   bottom: 3px;
@@ -1865,6 +1920,7 @@ button.accordion-question.is-open::before{
 .c-hero-tour--distance-count {
   display: inline-block;
   color: white;
+  margin: 0px;
   position: relative;
   margin-left: 8px;
   bottom: 5px;
@@ -1925,6 +1981,10 @@ button.accordion-question.is-open::before{
   display: inline-block;
 }
 
+p.c-content-tour--description {
+  margin-top: 0px;
+}
+
 .c-content-tour--right-container {
   width: 330px;
   padding: 20px;
@@ -1956,6 +2016,7 @@ button.accordion-question.is-open::before{
 
 #tour__sticky-content__info {
   text-align: center;
+  pointer-events: none;
   max-height: 0;
   margin: 0;
   opacity: 0;
@@ -1966,6 +2027,7 @@ button.accordion-question.is-open::before{
 }
 
 #tour__sticky-content__info.active {
+  pointer-events: auto;
   max-height: 1000px;
   margin-bottom: 20px;
   opacity: 1;
@@ -2073,6 +2135,7 @@ h3#tour__sticky-content__name {
 .c-content-tour--stop-count {
   display: inline-block;
   position: relative;
+  margin: 0px;
   margin-left: 6px;
   bottom: 5px;
 }
@@ -2089,6 +2152,7 @@ h3#tour__sticky-content__name {
 .c-content-tour--time-count {
   display: inline-block;
   position: relative;
+  margin: 0px;
   margin-left: 6px;
   bottom: 5px;
 }
@@ -2101,6 +2165,7 @@ h3#tour__sticky-content__name {
 .c-content-tour--distance-count {
   display: inline-block;
   position: relative;
+  margin: 0px;
   margin-left: 6px;
   bottom: 6px;
 }
@@ -2128,7 +2193,8 @@ h3#tour__sticky-content__name {
 .c-content-tour--tag {
   display: inline-block;
   position: relative;
-  font-size: 14px;
+  margin: 0px;
+  /* font-size: 16px; */
   color: white;
   background-color: #F26668;
   padding: 5px 10px;
@@ -2151,7 +2217,7 @@ h3#tour__sticky-content__name {
   height: 40%;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,1) 75%);
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1) 75%);
   z-index: 1;
 }
 
@@ -2165,16 +2231,15 @@ h3#tour__sticky-content__name {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 605px;
+  height: 585px;
   border-radius: 10px;
 }
 
 .c-stop-slider--container {
   position: relative;
-  display: inline-flex;
+  display: inline-block;
   bottom: 235px;
   left: 0px;
-  padding-left: 0px;
   width: 100%;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -2191,7 +2256,7 @@ h3#tour__sticky-content__name {
   height: 40px;
   position: absolute;
   width: 100%;
-  bottom: 84px;
+  bottom: 120px;
 }
 
 .slick-prev,
@@ -2263,13 +2328,13 @@ h3#tour__sticky-content__name {
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
-  top: 10px;
+  top: 8px;
   font-size: 14px;
-  height: 56px;
   overflow: hidden;
 }
 
 .c-stop-slider--stop-details {
+  display: flex;
   position: absolute;
   bottom: 15px;
   left: 15px;
@@ -2280,7 +2345,7 @@ h3#tour__sticky-content__name {
 .c-stop-slider--stop-name {
   display: inline-block;
   color: white;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .c-stop-slider--stop-number--container {
@@ -2416,6 +2481,7 @@ h3#tour__sticky-content__name {
 }
 
 .c-single-user-review--review{
+  margin: 0px;
   padding-bottom: 30px;
   border-bottom: 1px solid #D8D8D8;
   margin-bottom: 30px;
@@ -2807,9 +2873,18 @@ h3#tour__sticky-content__name {
     line-height: 1.15;
   }
 
+  p {
+    font-size: 1em;
+    /* 1x body copy size = 16px */
+  }
+
   .global-nav-items__container {
     display: none;
   }
+
+  .help-center__section .global-nav-items__container {
+      display: inline-block;
+    }
 
   .hamburger-menu-container {
     display: inline-block;
@@ -2954,6 +3029,10 @@ h3#tour__sticky-content__name {
   .menu-overlay .container-main a img {
     width: 100px;
     vertical-align: bottom;
+  }
+
+  .contact-button-modal {
+    margin-left: 0px;
   }
 
   .hero {
@@ -3102,6 +3181,16 @@ h3#tour__sticky-content__name {
     text-align: center;
   }
 
+  .footer-left-content__links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-left-content__links a {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
   .footer__left-content {
     margin-bottom: 20px;
   }
@@ -3122,6 +3211,10 @@ h3#tour__sticky-content__name {
     transform: none;
   }
 
+  .modal-contact-content.active {
+    transform: none;
+  }
+
   .hs-button {
     width: 100%;
   }
@@ -3133,10 +3226,6 @@ h3#tour__sticky-content__name {
   .modal-creator-content {
     width: 80%;
     padding: 20px;
-    top: auto;
-    transform: none;
-    margin-top: 15px;
-    margin-bottom: 15px;
   }
 
   .modal-creator-content h3 {
@@ -3204,8 +3293,8 @@ h3#tour__sticky-content__name {
     padding-right: 20px;
   }
 
-  button.accordion-question::before,
-  button.accordion-question.is-open::before {
+  button.accordion-question::after,
+  button.accordion-question.is-open::after {
     height: 22px;
     margin-left: 20px;
   }
@@ -3288,6 +3377,10 @@ h3#tour__sticky-content__name {
     height: 280px;
   }
 
+  .c-hero-tour--review-stars .usr {
+    bottom: 0px;
+  }
+
   .c-hero-tour--share {
     margin-top: 25px;
   }
@@ -3366,7 +3459,7 @@ h3#tour__sticky-content__name {
 
   .c-content-tour--map-container,
   .c-content-tour--map-visual {
-    height: 415px;
+    height: 480px;
   }
 
   .c-stop-slider--arrows-container {
@@ -3381,11 +3474,13 @@ h3#tour__sticky-content__name {
     width: 270px;
   }
 
-  .c-content-tour--info {
-    margin-bottom: 10px;
+  .c-stop-slider--stop-name {
+    max-width: 200px;
   }
 
-
+  .c-content-tour--info {
+    margin-bottom: 0px;
+  }
 
   /* FAQ Selection */
 
@@ -3475,6 +3570,14 @@ h3#tour__sticky-content__name {
 
   .footer-faq {
     position: relative;
+  }
+
+  /* HubSpot Widget */
+
+  #hubspot-messages-iframe-container {
+    z-index: -300000 !important;
+    opacity: 0;
+    pointer-events: none;
   }
 
 @media(max-width: 366px) {

@@ -2,46 +2,46 @@
 
   <?php get_header('alt'); ?>
 
-  <!-- Get Images -->
+    <!-- Get Images -->
 
-  <?php $tourId = get_field("tour_id"); ?>
+    <?php $tourId = get_field("tour_id"); ?>
 
-  <?php
-    $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/$tourId/public" );
-    if( is_wp_error( $request ) ) {
-      return false; // Bail early
-    }
-    $body = wp_remote_retrieve_body( $request );
-    $data = json_decode( $body );
-
-    $reviewsRequest = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/reviews/tour/$data->id" );
-    if( is_wp_error( $reviewsRequest ) ) {
-      return false; // Bail early
-    }
-    $reviewsBody = wp_remote_retrieve_body( $reviewsRequest );
-    $reviewsData = json_decode( $reviewsBody );
-  ?>
-
-  <?php function current_url () {
-    $url = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    $validURL = str_replace("&","&amp;",$url);
-
-    return $validURL;
-  }?>
-
-  <?php function get_initials ($fname) {
-      $words = explode(" ", $fname);
-      $initials = "";
-
-      if (count($words) > 0) {
-        $initials .= $words[0][0];
+    <?php
+      $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/$tourId/public" );
+      if( is_wp_error( $request ) ) {
+        return false; // Bail early
       }
-      if (count($words) > 1) {
-        $initials .= $words[count($words)-1][0];
-      }
+      $body = wp_remote_retrieve_body( $request );
+      $data = json_decode( $body );
 
-      return $initials;
-  }?>
+      $reviewsRequest = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/reviews/tour/$data->id" );
+      if( is_wp_error( $reviewsRequest ) ) {
+        return false; // Bail early
+      }
+      $reviewsBody = wp_remote_retrieve_body( $reviewsRequest );
+      $reviewsData = json_decode( $reviewsBody );
+    ?>
+
+    <?php function current_url () {
+      $url = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      $validURL = str_replace("&","&amp;",$url);
+
+      return $validURL;
+    }?>
+
+    <?php function get_initials ($fname) {
+        $words = explode(" ", $fname);
+        $initials = "";
+
+        if (count($words) > 0) {
+          $initials .= $words[0][0];
+        }
+        if (count($words) > 1) {
+          $initials .= $words[count($words)-1][0];
+        }
+
+        return $initials;
+    }?>
 
   <body>
 
@@ -55,7 +55,7 @@
           <div class="modal-share-tour--link-container">
             <div class="modal-share-tour--link share-fb">
               <div class="modal-share-tour--link-icon share-fb-icon"></div>
-              <div class="fb-share-button modal-share-tour--link-text--container" data-href="<?php echo current_url();?>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-share modal-share-tour--link-text" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgoyourtour.com%2Ftour-page%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Facebook</a></div>
+              <div class="fb-share-button modal-share-tour--link-text--container" data-href="<?php echo current_url();?>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-share modal-share-tour--link-text" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo current_url();?>";src="sdkpreparse" class="fb-xfbml-parse-ignore">Facebook</a></div>
               <div class="modal-share-tour--chevron share-fb-chevron"></div>
             </div>
           </div>
@@ -113,19 +113,15 @@
 
   <div class="popup-cta__container">
     <div class="popup-cta__button-container">
-      <a href="#"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
+      <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
     </div>
-      <!-- <div class="popup-cts__app-store-lockup">
-        <img class="app-icon-explorer--lockup" src="<?php echo get_bloginfo('template_directory'); ?>/img/explorer-app-icon.png"></img>
-        <a class="o-link--app-store--lockup" href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg"></img></a>
-      </div> -->
   </div>
 
   <section class="c-hero--tour">
 
     <div class="c-hero-tour--share">
       <div class="container-main">
-        <div id="share-tour-button" class="c-hero-tour--share-btn">Share tour</div>
+        <div class="c-hero-tour--share-btn share-button-modal">Share tour</div>
       </div>
     </div>
 
@@ -140,17 +136,17 @@
             <div class="c-hero-tour--review-stars">
               <?php $avgRating = is_null($data->averageRating) ? 0 : $data->averageRating; echo do_shortcode("[usr $avgRating]"); ?>
             </div>
-            <div class="c-hero-tour--review-count"><?php $reviewCount = is_null($data->numberOfReviews) ? 0 : $data->numberOfReviews; echo $reviewCount ?></div>
+            <p class="c-hero-tour--review-count"><?php $reviewCount = is_null($data->numberOfReviews) ? 0 : $data->numberOfReviews; echo $reviewCount ?></p>
           </div>
 
           <div class="c-hero-tour--time">
             <img class="c-hero-tour--time-icon" src="<?php echo get_bloginfo('template_directory'); ?>/img/time-icon.svg"></img>
-            <div class="c-hero-tour--time-count"><?php $mins = intval($data->tourDuration / 60); echo $mins?> mins</div>
+            <p class="c-hero-tour--time-count"><?php $mins = intval($data->tourDuration / 60); echo $mins?> mins</p>
           </div>
 
           <div class="c-hero-tour--distance">
             <img class="c-hero-tour--distance-icon" src="<?php echo get_bloginfo('template_directory'); ?>/img/distance-icon.svg"></img>
-            <div class="c-hero-tour--distance-count"><?php $km = number_format($data->distance / 1000, 1, '.', ''); echo $km?> km</div>
+            <p class="c-hero-tour--distance-count"><?php $km = number_format($data->distance / 1000, 1, '.', ''); echo $km?> km</p>
           </div>
 
         </div>
@@ -179,7 +175,7 @@
 
         <div class="c-content-tour--upper">
 
-          <div class="c-content-tour--description"><?php echo $data->description?></div>
+          <p class="c-content-tour--description"><?php echo $data->description?></p>
 
         </div>
 
@@ -188,17 +184,17 @@
           <div class="c-content-tour--key-details">
             <div class="c-content-tour--stops">
               <img class="c-content-tour--stop-icon" src="<?php echo get_bloginfo('template_directory'); ?>/img/stop-count-icon.svg"></img>
-              <div class="c-content-tour--stop-count"><?php echo count($data->stops)?> stops</div>
+              <p class="c-content-tour--stop-count"><?php echo count($data->stops)?> stops</p>
             </div>
 
             <div class="c-content-tour--time">
               <img class="c-content-tour--time-icon" src="<?php echo get_bloginfo('template_directory'); ?>/img/time-icon-red.svg"></img>
-              <div class="c-content-tour--time-count"><?php $mins = intval($data->tourDuration / 60); echo $mins?> mins</div>
+              <p class="c-content-tour--time-count"><?php $mins = intval($data->tourDuration / 60); echo $mins?> mins</p>
             </div>
 
             <div class="c-content-tour--distance">
               <img class="c-content-tour--distance-icon" src="<?php echo get_bloginfo('template_directory'); ?>/img/distance-icon-red.svg"></img>
-              <div class="c-content-tour--distance-count"><?php $km = number_format($data->distance / 1000, 1, '.', ''); echo $km?> km</div>
+              <p class="c-content-tour--distance-count"><?php $km = number_format($data->distance / 1000, 1, '.', ''); echo $km?> km</p>
             </div>
           </div>
 
@@ -211,7 +207,7 @@
                 <?php
 
                 foreach ($data->tags as $value) {
-                  echo "<div class=\"c-content-tour--tag\">$value->name</div>";
+                  echo "<p class=\"c-content-tour--tag\">$value->name</p>";
                 }
 
                 ?>
@@ -265,7 +261,7 @@
 
                 <?php endwhile;?>
 
-                map.fitBounds(bounds, {top:30, bottom:200, right:20,left:20});
+                map.fitBounds(bounds, {top:20, bottom:220, right:20,left:20});
 
                 <?php $i=0; while ($i<count($data->walks)): $walk = $data->walks[$i]; $i++; ?>
 
@@ -283,8 +279,6 @@
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaT5xMKjXBGYi8vAKZO8qkxMPHY0CDTFk&libraries=geometry&callback=initMap"
             async defer></script>
-
-            <!-- <div class="c-content-tour--map-visual" style="background-image: url(<?php echo $mapImage["url"];?>)"></div> -->
 
                 <?php
 
@@ -379,7 +373,7 @@
                     <?php echo do_shortcode("[usr $review->ratingOverall]"); ?>
                   </div>
 
-                  <div class="c-single-user-review--review"><?php echo $review->description?></div>
+                  <p class="c-single-user-review--review"><?php echo $review->description?></p>
 
                   </div>
 
@@ -437,7 +431,9 @@
               <div class="tour__sticky-content__review-count"><?php $reviewCount = is_null($data->numberOfReviews) ? 0 : $data->numberOfReviews; echo $reviewCount ?></div>
             </div>
           </div>
-          <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
+          <div class="tour__sticky-content__button-container">
+            <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
+          </div>
           <div class="app-store-lockup margin-top-20">
             <!-- <img class="app-icon-explorer--lockup" src="<?php echo get_bloginfo('template_directory'); ?>/img/explorer-app-icon.png"></img> -->
             <a class="o-link--app-store--lockup" href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg"></img></a>

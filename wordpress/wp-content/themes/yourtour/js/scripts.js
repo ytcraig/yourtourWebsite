@@ -2,11 +2,41 @@
 
 $(document).ready(function () {
 
-// Convo with Toby about streamlining code
+// Creator Modals
 
-// $(".js-button-modal").on('click', function () {
-//   console.log('Ive been clicked')
-// })
+$(".creator-button-modal").on('click', function () {
+  $("#modal-creator").addClass("active")
+  $(".modal-creator-content").addClass("active")
+})
+
+$("#modal-close-creator").on('click', function () {
+  $("#modal-creator").removeClass("active")
+  $(".modal-creator-content").removeClass("active")
+})
+
+// Get in Touch Modals
+
+$(".contact-button-modal").on('click', function () {
+  $("#modal-contact").addClass("active")
+  $(".modal-contact-content").addClass("active")
+})
+
+$("#modal-close-contact").on('click', function () {
+  $("#modal-contact").removeClass("active")
+  $(".modal-contact-content").removeClass("active")
+})
+
+// Share Modals
+
+$(".share-button-modal").on('click', function () {
+  $("#modal-share-tour").addClass("active")
+  $(".modal-share-tour").addClass("active")
+})
+
+$("#modal-close-share-tour").on('click', function () {
+  $("#modal-share-tour").removeClass("active")
+  $(".modal-share-tour").removeClass("active")
+})
 
 // Accordions
 
@@ -53,158 +83,6 @@ $(document).ready(function () {
       }
     });
   }
-
-// SIGN-UP MODALS
-
-  // Get modal element
-    var modalExplorer = document.getElementById('modal-explorer');
-    var modalCreator = document.getElementById('modal-creator');
-    var modalContact = document.getElementById('modal-contact');
-
-  // Get open modal button
-    var modalBtnExplorer = document.getElementById('modal-button__explorer');
-    var modalBtnCreator = document.getElementById('modal-button__creator');
-    var modalBtnCreator2 = document.getElementById('modal-button__creator__2');
-    var modalBtnCreatorBottom = document.getElementById('modal-button-bottom__creator');
-    var modalBtnContact = document.getElementById('modal-button__contact');
-    var modalBtnMobContact = document.getElementById('modal-button-mob__contact');
-
-  // Get close modal button
-    var closeBtnExplorer = document.getElementById('modal-close-explorer');
-    var closeBtnCreator = document.getElementById('modal-close-creator');
-    var closeBtnContact = document.getElementById('modal-close-contact');
-
-  // Listen for open click
-    if(modalBtnExplorer) {
-      modalBtnExplorer.addEventListener('click', openModalExplorer);
-    }
-
-    if(modalBtnCreator) {
-      modalBtnCreator.addEventListener('click', openModalCreator);
-    }
-
-    if(modalBtnCreator2) {
-      modalBtnCreator2.addEventListener('click', openModalCreator);
-    }
-
-    if(modalBtnCreatorBottom) {
-      modalBtnCreatorBottom.addEventListener('click', openModalCreator);
-    }
-
-    if(modalBtnContact) {
-      modalBtnContact.addEventListener('click', openModalContact);
-    }
-
-    if(modalBtnMobContact) {
-      modalBtnMobContact.addEventListener('click', openModalContact);
-    }
-
-  // Listen for close click
-    if(closeBtnExplorer) {
-      closeBtnExplorer.addEventListener('click', closeModalExplorer);
-    }
-
-    if(closeBtnCreator) {
-      closeBtnCreator.addEventListener('click', closeModalCreator);
-    }
-
-    if(closeBtnContact) {
-      closeBtnContact.addEventListener('click', closeModalContact);
-    }
-
-  // Listen for outside click
-    window.addEventListener('click', outsideClick1);
-    window.addEventListener('click', outsideClick2);
-
-  // function to open modal
-    function openModalExplorer() {
-      modalExplorer.classList.add("active");
-      console.log('Yes');
-    }
-
-    function openModalCreator() {
-      modalCreator.classList.add("active");
-      console.log('Yes');
-    }
-
-    function openModalContact() {
-      modalContact.classList.add("active");
-      console.log('Yes');
-    }
-
-  // function to close modal
-    function closeModalExplorer() {
-      modalExplorer.classList.remove("active");
-    }
-
-    function closeModalCreator() {
-      modalCreator.classList.remove("active");
-    }
-
-    function closeModalContact() {
-      modalContact.classList.remove("active");
-    }
-
-  // function to close modal on outside click
-    function outsideClick1(e) {
-      if(e.target == modalExplorer) {
-        modalExplorer.classList.remove("active");
-      }
-    }
-
-    function outsideClick2(e) {
-      if(e.target == modalCreator) {
-        modalCreator.classList.remove("active");
-      }
-    }
-
-    function outsideClick2(e) {
-      if(e.target == modalContact) {
-        modalContact.classList.remove("active");
-      }
-    }
-
-// Share Tour Modal //
-
-// Get modal element
-var modalShare = document.getElementById('modal-share-tour');
-
-// Get open modal button
-var modalBtnShare = document.getElementById('share-tour-button');
-
-// Get close modal button
-var closeBtnShare = document.getElementById('modal-close-share-tour');
-
-// Listen for open click
-if(modalBtnShare) {
-  modalBtnShare.addEventListener('click', openModalShare);
-}
-// Listen for close click
-
-if(closeBtnShare) {
-  closeBtnShare.addEventListener('click', closeModalShare);
-}
-
-// Listen for outside click
-window.addEventListener('click', outsideClick1);
-
-// function to open modal
-function openModalShare() {
-  modalShare.classList.add("active");
-  console.log('Yes');
-}
-
-// function to close modal
-function closeModalShare() {
-  modalShare.classList.remove("active");
-}
-
-// function to close modal on outside click
-function outsideClick3(e) {
-  if(e.target == modalShare) {
-    modalShare.style.display = "none";
-  }
-}
 
 // Stiky CTA's on Tour Pages
 
@@ -331,7 +209,9 @@ $(document).ready(function() {
 
 $(document).ready(function(){
   $('.c-stop-slider--container').slick({
-    slidesToShow: 2.1,
+    swipeToSlide: true,
+    SlidesToShow: 1,
+    swipe: true,
     infinite: false,
     variableWidth: true,
     appendArrows: '.c-stop-slider--arrows-container'
@@ -341,7 +221,7 @@ $(document).ready(function(){
 
     var length = $('.js-slide-single').length;
 
-        if(currentSlide === (length - 2)) {
+        if(currentSlide === (length - 1)) {
             $('.slick-next').addClass('hidden');
         }
         else {
