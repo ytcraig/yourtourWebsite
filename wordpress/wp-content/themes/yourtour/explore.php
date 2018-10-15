@@ -121,7 +121,7 @@
                 <p class="white-text">Creating a YourTour is fun, easy and simple. Register for free for exclusive access to the Creator app.</p>
               </div>
               <div class="section-content__button-centered no-margin">
-                <button id="modal-button-bottom__creator" class="o-button o-button__white purple-text">Get started</button>
+                <button class="creator-button-modal o-button o-button__white purple-text">Get started</button>
               </div>
             </div>
           </div>
