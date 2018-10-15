@@ -14,7 +14,12 @@ $("#modal-close-creator").on('click', function () {
   $(".modal-creator-content").removeClass("active")
 })
 
-// Get in Touch Modals
+$(".modal__outside-click").on('click', function () {
+  $("#modal-creator").removeClass("active")
+  $(".modal-creator-content").removeClass("active")
+})
+
+// Contact Modals
 
 $(".contact-button-modal").on('click', function () {
   $("#modal-contact").addClass("active")
@@ -22,6 +27,11 @@ $(".contact-button-modal").on('click', function () {
 })
 
 $("#modal-close-contact").on('click', function () {
+  $("#modal-contact").removeClass("active")
+  $(".modal-contact-content").removeClass("active")
+})
+
+$(".modal__outside-click").on('click', function () {
   $("#modal-contact").removeClass("active")
   $(".modal-contact-content").removeClass("active")
 })
@@ -34,6 +44,11 @@ $(".share-button-modal").on('click', function () {
 })
 
 $("#modal-close-share-tour").on('click', function () {
+  $("#modal-share-tour").removeClass("active")
+  $(".modal-share-tour").removeClass("active")
+})
+
+$(".modal__outside-click").on('click', function () {
   $("#modal-share-tour").removeClass("active")
   $(".modal-share-tour").removeClass("active")
 })
@@ -258,6 +273,7 @@ $(document).ready(function(){
     $('.hamburger-menu-container').toggleClass('active');
     $('.menu-overlay').toggleClass('active');
     $('body,html').toggleClass('hidden');
+    $('body').toggleClass('relative');
   })
 
 });

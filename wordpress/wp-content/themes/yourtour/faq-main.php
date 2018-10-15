@@ -19,6 +19,7 @@
         </div>
 
       </div>
+      <div class="modal__outside-click"></div>
     </div>
 
     <section class="faq-content-container" style="overflow: hidden;">

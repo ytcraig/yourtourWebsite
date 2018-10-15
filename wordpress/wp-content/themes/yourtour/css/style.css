@@ -51,6 +51,9 @@ h5 /* Caption */ {
 .hidden {
   overflow: hidden;
 }
+.relative {
+  position: relative;
+}
 
 .margin-top-20 {
   margin-top: 20px;
@@ -124,10 +127,19 @@ header {
   transition: opacity 0.5s ease;
   opacity: 0;
   pointer-events: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hamburger-menu-container {
   display: none;
+}
+
+.modal__outside-click {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* HOME PAGE */
@@ -266,6 +278,7 @@ ul.hs-error-msgs {
 }
 
 .modal-contact-content.active {
+  z-index: 100;
   transform: translate(0%, -50%);
 }
 
@@ -511,6 +524,7 @@ ul.hs-error-msgs {
 }
 
 .modal-creator-content.active {
+  z-index: 100;
   transform: translate(0%, -50%);
 }
 
@@ -1638,6 +1652,7 @@ button.accordion-question.is-open .accordion-question__plus-btn {
 }
 
 .modal-share-tour.active {
+  z-index: 100;
   transform: translate(0%, -50%);
 }
 
@@ -2895,6 +2910,13 @@ h3#tour__sticky-content__name {
     height: 38px;
     cursor: pointer;
     z-index: 99999;
+  }
+
+  .hamburger-menu-container.active {
+    display: inline-block;
+    position: fixed;
+    right: 30px;
+    top: 28px;
   }
 
   .hamburger-icon {

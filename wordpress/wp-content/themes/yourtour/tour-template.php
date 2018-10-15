@@ -1,47 +1,99 @@
 <?php /* Template Name: Tour Template */ ?>
 
-  <?php get_header('alt'); ?>
+  <?php get_header('tour'); ?>
 
-    <!-- Get Images -->
+  <!-- Get Images -->
 
-    <?php $tourId = get_field("tour_id"); ?>
+  <?php $tourId = get_field("tour_id"); ?>
 
-    <?php
-      $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/$tourId/public" );
-      if( is_wp_error( $request ) ) {
-        return false; // Bail early
+  <?php
+    $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/$tourId/public" );
+    if( is_wp_error( $request ) ) {
+      return false; // Bail early
+    }
+    $body = wp_remote_retrieve_body( $request );
+    $data = json_decode( $body );
+
+    $reviewsRequest = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/reviews/tour/$data->id" );
+    if( is_wp_error( $reviewsRequest ) ) {
+      return false; // Bail early
+    }
+    $reviewsBody = wp_remote_retrieve_body( $reviewsRequest );
+    $reviewsData = json_decode( $reviewsBody );
+  ?>
+
+  <?php function current_url () {
+    $url = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $validURL = str_replace("&","&amp;",$url);
+
+    return $validURL;
+  }?>
+
+  <?php function get_initials ($fname) {
+      $words = explode(" ", $fname);
+      $initials = "";
+
+      if (count($words) > 0) {
+        $initials .= $words[0][0];
       }
-      $body = wp_remote_retrieve_body( $request );
-      $data = json_decode( $body );
-
-      $reviewsRequest = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/reviews/tour/$data->id" );
-      if( is_wp_error( $reviewsRequest ) ) {
-        return false; // Bail early
+      if (count($words) > 1) {
+        $initials .= $words[count($words)-1][0];
       }
-      $reviewsBody = wp_remote_retrieve_body( $reviewsRequest );
-      $reviewsData = json_decode( $reviewsBody );
-    ?>
 
-    <?php function current_url () {
-      $url = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-      $validURL = str_replace("&","&amp;",$url);
+      return $initials;
+  }?>
 
-      return $validURL;
-    }?>
+  <meta property="fb:app_id"             content="289085771609196" />
+  <meta property="og:title"              content="<?php echo $data->name ?>" />
+  <meta property="og:description"        content="<?php echo $data->description?>" />
+  <meta property="og:image"              content="https://yourtourservice.azurewebsites.net/api/image/<?php echo $data->cover->imageId;?>" />
 
-    <?php function get_initials ($fname) {
-        $words = explode(" ", $fname);
-        $initials = "";
+  <?php wp_head();?>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVTMZ9R"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/slick.min.js"></script>
+  <header>
+    <div class="container-main">
 
-        if (count($words) > 0) {
-          $initials .= $words[0][0];
-        }
-        if (count($words) > 1) {
-          $initials .= $words[count($words)-1][0];
-        }
+      <div class="nav">
+        <a href="<?php echo get_permalink( 56 ); ?>">
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
+        </a>
+        <div class="global-nav-items__container">
+          <a class="global-nav-item" href="<?php echo get_permalink( 339 ); ?>">Explore the tours</a></li>
+          <a class="global-nav-item" href="<?php echo get_permalink( 64 ); ?>" target="_blank">Help</a></li>
+          <button class="o-button o-button__green contact-button-modal">Get in touch</button>
+        </div>
 
-        return $initials;
-    }?>
+        <div class="hamburger-menu-container">
+          <div class="hamburger-icon"></div>
+        </div>
+
+          <div class="menu-overlay">
+            <div class="container-main">
+              <a href="<?php echo get_permalink( 56 ); ?>">
+                <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
+              </a>
+            </div>
+            <ul>
+              <li><a href="<?php echo get_permalink( 56 ); ?>">Home</a></li>
+              <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
+              <li><a href="<?php echo get_permalink( 339 ); ?>">Explore the Tours</a></li>
+              <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
+              <li class="mobile-nav__btn"><button class="o-button o-button__green contact-button-modal">Get in touch</button></li>
+            </ul>
+          </div>
+
+      </div>
+    </div>
+
+    </header>
 
   <body>
 
@@ -90,6 +142,7 @@
         </div>
 
     </div>
+    <div class="modal__outside-click"></div>
   </div>
 
   <div id="modal-contact" class="o-modal">
@@ -109,6 +162,7 @@
       </div>
 
     </div>
+    <div class="modal__outside-click"></div>
   </div>
 
   <div class="popup-cta__container">

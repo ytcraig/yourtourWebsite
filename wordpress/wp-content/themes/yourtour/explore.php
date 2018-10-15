@@ -46,6 +46,7 @@
         </div>
 
       </div>
+      <div class="modal__outside-click"></div>
     </div>
 
     <div id="modal-contact" class="o-modal">
@@ -65,6 +66,7 @@
         </div>
 
       </div>
+      <div class="modal__outside-click"></div>
     </div>
 
     <div class="explore__all-tours-container">

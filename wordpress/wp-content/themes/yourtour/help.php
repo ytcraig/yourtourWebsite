@@ -19,6 +19,7 @@
           </div>
 
         </div>
+        <div class="modal__outside-click"></div>
       </div>
 
       <div class="help-center__content-container">

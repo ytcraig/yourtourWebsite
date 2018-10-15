@@ -36,7 +36,7 @@
                 </ul>
               </div>
 
-          </div>
+            </div>
 
           <div class="hero-text-container">
             <h1 class="hero-heading">Explore like never before</h1>
@@ -65,6 +65,7 @@
         </div>
 
       </div>
+      <div class="modal__outside-click"></div>
     </div>
 
     <div id="modal-contact" class="o-modal">
@@ -84,6 +85,7 @@
         </div>
 
       </div>
+      <div class="modal__outside-click"></div>
     </div>
 
     <div class="section-one__container">
