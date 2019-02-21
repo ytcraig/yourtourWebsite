@@ -1,8 +1,6 @@
-// ACCORDIONS
-
 $(document).ready(function () {
 
-// Creator Modals
+// GLOBAL MODALS
 
 $(".creator-button-modal").on('click', function () {
   $("#modal-creator").addClass("active")
@@ -53,7 +51,14 @@ $(".modal__outside-click").on('click', function () {
   $(".modal-share-tour").removeClass("active")
 })
 
-// Accordions
+})
+
+
+// ACCORDIONS
+
+$(document).ready(function () {
+
+  if($('body').is('.HelpPage')){
 
   var accordions = document.getElementsByClassName("accordion-question")
 
@@ -99,116 +104,11 @@ $(".modal__outside-click").on('click', function () {
     });
   }
 
-// Stiky CTA's on Tour Pages
-
-$(window).bind('scroll', function () {
-
-  var cta = document.getElementById('tour-page-sticky-cta');
-  var info = document.getElementById('tour__sticky-content__info');
-  var ctaHeight = $(window).height() - 230;
-  if($(window).scrollTop() > ctaHeight) {
-
-      cta.classList.add('fixed');
-      info.classList.add('active');
-  }
-
-  else {
-
-    $(cta.classList.remove('fixed'));
-    $(info.classList.remove('active'));
-
-  }
-
-
-});
-
-// function to change colour of copy button on click
-
-// Get copy to clipboard button
-var clipboardCopyBtn = document.getElementById('clipboard-button');
-
-// Listen for open click
-if(clipboardCopyBtn) {
-  clipboardCopyBtn.addEventListener('click', clipboardCopySuccess);
 }
 
-// function to change button state
-function clipboardCopySuccess() {
-  clipboardCopyBtn.classList.add("active");
-  document.getElementById('clipboard-button').innerHTML = 'Copied successfully!';
-}
-
-
-// Clipboard.js - Homepage App Link
-
-new ClipboardJS('.clipboard-button');
-
-var clipboard = new ClipboardJS('.btn');
-
-clipboard.on('success', function(e) {
-    console.info('Action:', e.action);
-    console.info('Text:', e.text);
-    console.info('Trigger:', e.trigger);
-
-    e.clearSelection();
-});
-
-clipboard.on('error', function(e) {
-    console.error('Action:', e.action);
-    console.error('Trigger:', e.trigger);
-});
-
-// Mailchimp
-
-  var $form = $('.js-mailchimp-form');
-  if ($form.length > 0) {
-    $('form input[type="submit"]').bind('click', function (event) {
-      if (event) event.preventDefault();
-      register($(this.closest('form')));
-    })
-  }
-
-
-function register($form) {
-  console.log("form", $form);
-  // $('#mc-embedded-subscribe').val('Sending...');
-  $.ajax({
-    type: $form.attr('method'),
-    url: $form.attr('action'),
-    data: $form.serialize(),
-    cache: false,
-    dataType: 'jsonp',
-    contentType: 'application/json; charset=utf-8',
-    error: function (err) { alert('Could not connect to the registration server. Please try again later.') },
-    success: function (data) {
-      // $('#mc-embedded-subscribe').val('subscribe')
-      if (data.result === 'success') {
-        // Yeahhhh Success
-        console.log(data.msg)
-        $($form).closest(".o-modal").addClass("thank-you-message-shown");
-      } else {
-        // Something went wrong, do something to notify the user.
-        console.log(data);
-        console.log(data.msg, $($form).closest(".modal-form"));
-        $(".modal-form-error", $form).addClass("active");
-        $(".modal-form-error-name", $form).addClass("active");
-      }
-    }
-  })
-};
+else {}
 
 })
-
-$(window).scroll(function() {
-  parallaxHero();
-});
-
-function parallaxHero() {
-
-  var wScroll = $(window).scrollTop();
-  $('.parallax-hero').css('background-position', 'center '+(wScroll*0.75)+'px')
-
-}
 
 // Facebook Sharer Popup
 
@@ -223,6 +123,9 @@ $(document).ready(function() {
 // Stop Slider (Slick)
 
 $(document).ready(function(){
+
+  if($('body').is('.TourPage')){
+
   $('.c-stop-slider--container').slick({
     swipeToSlide: true,
     SlidesToShow: 1,
@@ -250,6 +153,11 @@ $(document).ready(function(){
             $('.slick-prev').removeClass('active');
         }
     })
+
+  }
+
+  else {}
+
 });
 
 // Review Pagination
@@ -258,11 +166,20 @@ $(document).ready(function(){
 
   $(document).ready(function() {
 
+    if($('body').is('.TourPage')){
+
     $('.c-tour--reviews-pagination--container').customPaginate({
 
       itemsToPaginate: '.c-tour--single-user-review',
       activeClass: 'review-pagination--active'
   });
+
+}
+
+else {
+
+}
+
 })
 
 // Hambuger Menu Animation & Function
@@ -282,6 +199,8 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
+  if($('body').is('.ExplorePage')){
+
   var typed = new Typed('.explore-hero__typed-element', {
     strings: ["London", "Manchester", "Oxford", "Brighton", "Quorn", "Bonn", "Lisbon"],
     typeSpeed: 100,
@@ -289,6 +208,44 @@ $(document).ready(function(){
     loop: true,
   });
 
+}
+
+else {}
+
 });
 
 })(jQuery)
+
+$(document).ready(function () {
+
+  if($('body').is('.TourPage')){
+
+
+// Stiky CTA's on Tour Pages
+
+$(window).bind('scroll', function () {
+
+  var cta = document.getElementById('tour-page-sticky-cta');
+  var info = document.getElementById('tour__sticky-content__info');
+  var ctaHeight = $(window).height() - 230;
+  if($(window).scrollTop() > ctaHeight) {
+
+      cta.classList.add('fixed');
+      info.classList.add('active');
+  }
+
+  else {
+
+    $(cta.classList.remove('fixed'));
+    $(info.classList.remove('active'));
+
+  }
+
+
+});
+
+}
+
+else {}
+
+})

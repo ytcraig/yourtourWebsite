@@ -1,4 +1,14 @@
   <footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/scripts.js"></script>
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <!-- <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/slick.min.js"></script> -->
+
+    </body>
+
+
     <div class="footer">
 
       <div class="container-main">
@@ -16,7 +26,7 @@
               <a href="<?php echo get_permalink( 106 ); ?>" target="_blank">Terms</a>
             </div>
             <div class="footer-left-content__address">
-              <p>YourTour&copy; 2018, Kemp House,<br>152-160 City Road, London EC1V 2NX</p>
+              <p>YourTour&copy; 2019, Kemp House,<br>152-160 City Road, London EC1V 2NX</p>
             </div>
           </div>
 
@@ -29,9 +39,15 @@
               <a class="li" href="https://www.linkedin.com/company/18453059/"></a>
             </div>
 
-            <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">
-              <img class="footer-right-content__ios-badge" src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg">
-            </a>
+            <div class="footer-right-content__store-badges">
+              <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">
+                <img class="footer-right-content__ios-badge" src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg">
+              </a>
+
+              <a href="https://play.google.com/store/apps/details?id=com.goyourtour.yourtour" target="_blank">
+                <img class="footer-right-content__ios-badge" src="<?php echo get_bloginfo('template_directory'); ?>/img/google_play_badge.png">
+              </a>
+            </div>
           </div>
 
         </div>

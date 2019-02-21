@@ -1,6 +1,6 @@
 <?php /* Template Name: Explore */ ?>
 
-  <?php get_header('alt'); ?>
+  <?php get_header('explore'); ?>
 
   <?php
     $request = wp_remote_get( "https://yourtourservice.azurewebsites.net/api/tour/discover-web?range=50000" );
@@ -163,6 +163,4 @@
 
     </div>
 
-
-  </body>
   <?php get_footer(); ?>

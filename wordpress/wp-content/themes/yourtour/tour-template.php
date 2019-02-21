@@ -50,14 +50,11 @@
 
   <?php wp_head();?>
 </head>
-<body>
+<body class="TourPage">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVTMZ9R"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/slick.min.js"></script>
   <header>
     <div class="container-main">
 
@@ -95,8 +92,6 @@
 
     </header>
 
-  <body>
-
   <div id="modal-share-tour" class="o-modal">
       <div class="modal-share-tour">
 
@@ -128,16 +123,7 @@
               <div class="modal-share-tour--chevron"></div>
             </a>
           </div>
-
-          <div class="modal-share-tour--link-container">
-            <div class="modal-share-tour--link share-cl">
-              <div class="modal-share-tour--link-icon"></div>
-              <button id="clipboard-button" class="modal-share-tour--link-button clipboard-button" data-clipboard-text="<?php echo current_url();?>">
-                Copy link
-              </button>
-              <div class="modal-share-tour--chevron"></div>
-            </div>
-          </div>
+        </div>
 
         </div>
 
@@ -166,8 +152,12 @@
   </div>
 
   <div class="popup-cta__container">
-    <div class="popup-cta__button-container">
-      <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
+    <div class="container-main">
+      <div class="popup-cta__button-container">
+        <!-- <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><button type="button" class="o-button--listen">Listen for free on the App</button></a> -->
+        <a class="o-link--app-store--lockup" href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg"></img></a>
+        <a class="o-link--app-store--lockup" href="https://play.google.com/store/apps/details?id=com.goyourtour.yourtour"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/google_play_badge.png"></img></a>
+      </div>
     </div>
   </div>
 
@@ -489,8 +479,8 @@
             <a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank"><button type="button" class="o-button--listen">Listen for free on the App</button></a>
           </div>
           <div class="app-store-lockup margin-top-20">
-            <!-- <img class="app-icon-explorer--lockup" src="<?php echo get_bloginfo('template_directory'); ?>/img/explorer-app-icon.png"></img> -->
             <a class="o-link--app-store--lockup" href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/ios-app-store-badge.svg"></img></a>
+            <a class="o-link--app-store--lockup" href="https://play.google.com/store/apps/details?id=com.goyourtour.yourtour"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/google_play_badge.png"></img></a>
           </div>
         </div>
 
@@ -499,7 +489,5 @@
     </div>
 
   </section>
-
-  </body>
 
   <?php get_footer('tour'); ?>

@@ -40,31 +40,52 @@
       js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    <link href="<?php echo get_bloginfo('template_directory'); ?>/css/style.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="YourTour brings the world around you to life by turning your mobile into a personal interactive tour guide">
     <meta name="keywords" content="tours, mobile tours, interactive tours">
     <title>YourTour - Explore like never before.</title>
 
+    <?php wp_head();?>
   </head>
-  <body class="HelpPage">
+  <body class="ExplorePage">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVTMZ9R"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+    <header>
+      <div class="container-main">
 
-    <section class="help-center__section">
-
-      <header>
-        <div class="container-main">
-          <div class="nav">
-            <a href="<?php echo get_permalink( 56 ); ?>">
-              <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
-            </a>
-            <div class="global-nav-items__container">
-              <button class="o-button o-button__green contact-button-modal">Get in touch</button>
-            </div>
+        <div class="nav">
+          <a href="<?php echo get_permalink( 56 ); ?>">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
+          </a>
+          <div class="global-nav-items__container">
+            <a class="global-nav-item" href="<?php echo get_permalink( 339 ); ?>">Explore the tours</a></li>
+            <a class="global-nav-item" href="<?php echo get_permalink( 64 ); ?>" target="_blank">Help</a></li>
+            <button class="o-button o-button__green contact-button-modal">Get in touch</button>
           </div>
+
+          <div class="hamburger-menu-container">
+            <div class="hamburger-icon"></div>
+          </div>
+
+            <div class="menu-overlay">
+              <div class="container-main">
+                <a href="<?php echo get_permalink( 56 ); ?>">
+                  <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo-black.png">
+                </a>
+              </div>
+              <ul>
+                <li><a href="<?php echo get_permalink( 56 ); ?>">Home</a></li>
+                <li><a href="https://itunes.apple.com/us/app/yourtour-amazing-audio-tours/id1338979433?ls=1&mt=8" target="_blank">Download the App</a></li>
+                <li><a href="<?php echo get_permalink( 339 ); ?>">Explore the Tours</a></li>
+                <li><a href="<?php echo get_permalink( 64 ); ?>">Help</a></li>
+                <li class="mobile-nav__btn"><button class="o-button o-button__green contact-button-modal">Get in touch</button></li>
+              </ul>
+            </div>
+
         </div>
-      </header>
+      </div>
+    </header>

@@ -10,8 +10,6 @@
     <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,700i" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <meta name="google-site-verification" content="qw2vwBKtJOm8Ix-FxGo8DP4jCP4YdoW_-C7Wvm6Jk30" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123171584-1"></script>
@@ -37,8 +35,7 @@
     <meta name="description" content="YourTour brings the world around you to life by turning your mobile into a personal interactive tour guide">
     <meta name="keywords" content="tours, mobile tours, interactive tours">
     <title>YourTour - Explore like never before.</title>
-    <link href="<?php echo get_bloginfo('template_directory'); ?>/css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" src="<?php echo get_bloginfo('template_directory'); ?>/img/explorer-app-icon.png">
+
     <?php wp_head();?>
   </head>
 

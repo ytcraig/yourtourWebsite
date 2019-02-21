@@ -43,6 +43,8 @@
             <h3 class="hero-sub-heading">Create and share engaging, self-guided audio walks for the world to enjoy.</h3>
             <button class="creator-button-modal o-button o-button__green">Create a tour for free</button>
           </div>
+
+          <img class="trav-award-logo__hero" src="<?php echo get_bloginfo('template_directory'); ?>/img/travolution-award-logo.png">
         </div>
 
     </div>
@@ -94,7 +96,7 @@
       </div>
 
       <div class="container-main">
-        <div class="section-content__container">
+        <div class="section-content__container top-45">
 
           <div class="section-phone__container">
             <div class="section-video">
@@ -109,8 +111,17 @@
             <h2 class="section-heading">Create. Engage. Amaze.</h2>
             <p class="intro-copy">Creating a YourTour is fun, easy and simple. Whether you're an organisation wishing to attract and engage visitors, or an individual looking to monetise your knowledge, the YourTour platform enables you to bring the world to life via unique GPS-guided audio walks by the person who knows them best – you.</p>
             <button class="o-button o-button__purple creator-button-modal">Create a tour for free</button>
+            <div class="partners__container">
+              <h5>Some of our partners:</h5>
+              <img class="partner-logos" src="<?php echo get_bloginfo('template_directory'); ?>/img/partner-logos-desktop.png">
+              <img class="partner-logos-mob" src="<?php echo get_bloginfo('template_directory'); ?>/img/partner-logos-mobile.png">
+            </div>
           </div>
 
+        </div>
+        <div class="partners__container__tablet">
+          <h5>Some of our partners:</h5>
+          <img class="partner-logos" src="<?php echo get_bloginfo('template_directory'); ?>/img/partner-logos-desktop.png">
         </div>
       </div>
     </div>
@@ -261,6 +272,24 @@
       </div>
     </div>
 
+    <div class="section-award__container">
+
+      <div class="container-main">
+
+        <div class="section-content-centered__container">
+
+          <div class="section-text__container">
+            <h3 class="white-text">Proud to be voted Best Digital User Experience in Travel.</h3>
+            <img class="trav-award-logo" src="<?php echo get_bloginfo('template_directory'); ?>/img/travolution-award-logo.png">
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
     <div class="section-cta__container">
 
       <div class="container-main">
@@ -281,5 +310,4 @@
     </div>
 
     </div>
-  </body>
   <?php get_footer(); ?>

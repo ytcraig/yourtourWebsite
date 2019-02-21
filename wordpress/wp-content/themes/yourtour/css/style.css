@@ -74,6 +74,7 @@ header {
   position: relative;
   width: 100%;
   padding: 20px 0px;
+  z-index: 99999;
 }
 
 .nav a {
@@ -327,10 +328,12 @@ ul.hs-error-msgs {
 .container-logo {
   display: inline-block;
   cursor: pointer;
+  position: relative;
+  top: 3px;
 }
 
 .container-logo img {
-  height: 70px;
+  height: 76px;
 }
 
 .container-text {
@@ -376,6 +379,13 @@ ul.hs-error-msgs {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   margin-bottom: 10px;
+}
+
+.trav-award-logo__hero {
+  width: 240px;
+  position: absolute;
+  top: 72px;
+  left: 176px;
 }
 
 .o-button {
@@ -623,38 +633,6 @@ ul.hs-error-msgs {
   margin-top: 0px;
 }
 
-.clipboard-container {
-  margin: 0 auto;
-  width: 90%;
-  margin-bottom: 5px;
-}
-
-.btn--copy-explorer-app-link {
-  margin-bottom: 15px;
-  padding: 15px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1em;
-  border-radius: 40px;
-  width: 100%;
-  margin-top: 0px;
-  cursor: pointer;
-  border: 2px solid #22BFB3;
-  color: #22BFB3;
-  background-color: white;
-  -webkit-appearance: none;
-  transition: all 0.3s ease;
-  animation: clipboardCopySuccess 1.25s infinite ease;
-}
-
-.btn--copy-explorer-app-link:hover {
-  box-shadow: 0px 2px 8px 2px rgba(34, 191, 179, 0.3);
-}
-
-.btn--copy-explorer-app-link.active {
-  color: white;
-  background-color: #22BFB3;
-}
-
 .ios-app-store-form {
   text-align: center;
 }
@@ -766,9 +744,6 @@ input.form-button:hover {
   width: 22%;
   margin-right: 8.166666666%;
   position: relative;
-  /* background-color: white;
-  border-radius: 32px;
-  box-shadow: 0px 2px 12px 2px rgba(0, 0, 0, 0.2); */
 }
 
 .section-phone__container video {
@@ -817,6 +792,28 @@ iframe .player.player-tiny .vp-controls {
 .section-text__container {
   width: auto;
   max-width: 568px;
+}
+
+.partners__container {
+  margin-top: 50px;
+}
+
+.partners__container h5 {
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.partners__container__tablet {
+  display: none;
+}
+
+.partner-logos {
+  width: 100%;
+}
+
+.partner-logos-mob {
+  display: none;
 }
 
 /* Section Two */
@@ -878,6 +875,8 @@ p.intro-copy {
 
 .section-phones__container img {
   width: 100%;
+  -webkit-filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.2));
 }
 
 .section-two-feature__icon {
@@ -1015,6 +1014,24 @@ p.intro-copy {
   margin: 0px;
 }
 
+/* Section - Award */
+
+.section-award__container {
+  height: 310px;
+  background: linear-gradient(rgba(25,163,176,1), rgba(34,191,179,1));
+  position: relative;
+  overflow: hidden;
+}
+
+.section-award__container h3 {
+  font-weight: 400;
+  margin-top: 0px;
+}
+
+.trav-award-logo {
+  width: 383px;
+}
+
 /* Footer */
 
 .footer, .footer__tour {
@@ -1072,6 +1089,19 @@ p.intro-copy {
   margin-bottom: 15px;
 }
 
+.footer-right-content__store-badges {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-right-content__store-badges a {
+  display: inline-block;
+}
+
+.footer-right-content__store-badges a:nth-child(2) {
+  margin-left: 8px;
+}
+
 .footer-right-content__ios-badge {
   width: 135px;
 }
@@ -1084,65 +1114,74 @@ p.intro-copy {
 }
 
 a.fb {
-  background: url('../img/fb-icon.svg') no-repeat;
+  background: url('../img/fb.png') no-repeat;
   background-position: center;
-  height: 39px;
-  width: 39px;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
   margin: 0 5px;
   transition: content 0.2s ease;
   display: inline-block;
 }
 
 a.fb:hover {
-  background: url('../img/fb-icon-hover.svg') no-repeat;
+  background: url('../img/fb-hover.png') no-repeat;
   background-position: center;
+  background-size: contain;
   cursor: pointer;
 }
 
 a.tw {
-  background: url('../img/tw-icon.svg') no-repeat;
+  background: url('../img/tw.png') no-repeat;
   background-position: center;
-  height: 39px;
-  width: 39px;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
   margin: 0 5px;
   transition: content 0.2s ease;
   display: inline-block;
 }
 
 a.tw:hover {
-  background: url('../img/tw-icon-hover.svg') no-repeat;
+  background: url('../img/tw-hover.png') no-repeat;
   background-position: center;
+  background-size: contain;
   cursor: pointer;
 }
 
 a.inst {
-  background: url('../img/inst-icon.svg') no-repeat;
+  background: url('../img/in.png') no-repeat;
   background-position: center;
-  height: 39px;
-  width: 39px;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
   margin: 0 5px;
   transition: content 0.2s ease;
   display: inline-block;
 }
 
 a.inst:hover {
-  background: url('../img/inst-icon-hover.svg') no-repeat;
+  background: url('../img/in-hover.png') no-repeat;
   background-position: center;
+  background-size: contain;
   cursor: pointer;
 }
 
 a.li {
-  background: url('../img/li-icon.svg') no-repeat;
-  height: 39px;
-  width: 39px;
+  background: url('../img/li.png') no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
   margin: 0 5px;
   transition: content 0.2s ease;
   display: inline-block;
 }
 
 a.li:hover {
-  background: url('../img/li-icon-hover.svg') no-repeat;
+  background: url('../img/li-hover.png') no-repeat;
   background-position: center;
+  background-size: contain;
   cursor: pointer;
 }
 
@@ -1296,6 +1335,7 @@ a.li:hover {
   text-align: left;
   background: linear-gradient(rgba(25,163,176,1), rgba(34,191,179,1));
   height: 400px;
+  overflow: hidden;
 }
 
 .explore__download-cta-content__contaner {
@@ -1313,8 +1353,8 @@ a.li:hover {
 }
 
 .explore__phones-container {
-  width: 40%;
-  max-width: 390px;
+  width: 37%;
+  max-width: 360px;
   height: 400px;
   position: relative;
 }
@@ -1322,7 +1362,9 @@ a.li:hover {
 .explore__phones-container img {
   width: 100%;
   position: absolute;
-  bottom: 0px
+  bottom: 0px;
+  -webkit-filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.2));
 }
 
 .overflow-hidden {
@@ -2116,20 +2158,26 @@ h3#tour__sticky-content__name {
 }
 
 .app-store-lockup {
-  text-align: center;
-}
-
-.app-icon-explorer--lockup {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.2);
-  margin-right: 4px;
+  display: flex;
+  overflow: hidden;
 }
 
 .o-link--app-store--lockup {
   margin: 0 auto;
   display: inline-block;
+  width: 50%;
+}
+
+.o-link--app-store--lockup:nth-child(1) {
+  margin-right: 4px;
+}
+
+.o-link--app-store--lockup:nth-child(2) {
+  margin-left: 4px;
+}
+
+.o-link--app-store--lockup img {
+  width: 100%;
 }
 
 .c-content-tour--key-details {
@@ -2566,6 +2614,10 @@ h3#tour__sticky-content__name {
     width: 80%;
   }
 
+  .trav-award-logo__hero {
+    width: 230px;
+  }
+
   .section-container {
     display: block;
   }
@@ -2610,6 +2662,10 @@ h3#tour__sticky-content__name {
     max-width: 90%;
     margin-bottom: 30px;
     max-width: 410px;
+  }
+
+  .trav-award-logo__hero {
+    display: none;
   }
 
   .section-header {
@@ -2705,7 +2761,7 @@ h3#tour__sticky-content__name {
     display: block;
     position: fixed;
     bottom: 0px;
-    padding: 20px 0px;
+    padding: 16px 0px;
     background-color: white;
     border-top: 1px solid #D8D8D8;
     width: 100%;
@@ -2713,8 +2769,13 @@ h3#tour__sticky-content__name {
   }
 
   .popup-cta__button-container {
+    display: flex;
     margin: 0 auto;
-    max-width: 342px;
+    max-width: none;
+  }
+
+  .o-link--app-store--lockup img {
+    display: block;
   }
 
   .footer__tour {
@@ -2739,6 +2800,10 @@ h3#tour__sticky-content__name {
     margin-top: 40px;
   }
 
+  .container-logo {
+    top: auto;
+  }
+
   .container-logo img {
     width: 120px;
   }
@@ -2761,20 +2826,46 @@ h3#tour__sticky-content__name {
     max-width: 470px;
   }
 
+  .section-one__container {
+    height: 690px;
+  }
+
+  .top-45 {
+    top: 45%;
+  }
+
+  .partners__container {
+    display: none;
+  }
+
+  .partners__container__tablet {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    width: 87%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+
+  .partner-logos {
+    width: 87%;
+  }
+
   .section-one__lines-left {
     position: absolute;
     top: -140px;
-    left: -13px;
-    width: 188px;
+    left: -27px;
+    width: 178px;
   }
 
   .section-phone__container {
     width: 29%;
-    margin-right: 5.4%;
+    margin-right: 8.4%;
   }
 
   .section-text__container {
-    max-width: 330px;
+    max-width: 360px;
   }
 
   .section-phones__container {
@@ -2791,13 +2882,13 @@ h3#tour__sticky-content__name {
   }
 
   .section-two__lines-right {
-    width: 120px;
-    top: -165px;
+    width: 100px;
+    top: -145px;
   }
 
   .section-two__lines-left {
-    width: 138px;
-    bottom: -165px;
+    width: 108px;
+    bottom: -136px;
   }
 
   .section-three__container {
@@ -2817,8 +2908,12 @@ h3#tour__sticky-content__name {
   }
 
   .section-three__lines-right {
-    width: 132px;
-    bottom: -90px;
+    width: 112px;
+    bottom: -70px;
+  }
+
+  .trav-award-logo {
+    width: 320px;
   }
 
   .modal-creator-content {
@@ -2866,6 +2961,10 @@ h3#tour__sticky-content__name {
 
   .hs-richtext h3 {
     max-width: 270px;
+  }
+
+  .popup-cta__button-container {
+      max-width: 300px;;
   }
 
 @media(max-width: 475px) {
@@ -3139,6 +3238,25 @@ h3#tour__sticky-content__name {
     margin-right: 0px;
   }
 
+  .partners__container {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .partners__container__tablet {
+    display: none;
+  }
+
+  .partner-logos {
+    display: none;
+  }
+
+  .partner-logos-mob {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+  }
+
   .section-one__container,
   .section-two__container,
   .section-three__container,
@@ -3189,6 +3307,19 @@ h3#tour__sticky-content__name {
     font-size: 14px;
   }
 
+  .section-award__container {
+    height: 300px;
+  }
+
+  .section-award__container h3 {
+    margin-top: 30px;;
+
+  }
+
+  .trav-award-logo {
+    width: 90%;
+  }
+
   .section-cta__container {
     padding: 20px 0px;
   }
@@ -3220,6 +3351,20 @@ h3#tour__sticky-content__name {
   .footer__right-content {
     text-align: center;
   }
+
+  .footer-right-content__store-badges {
+    justify-content: center;
+  }
+
+  .footer-right-content__store-badges a:nth-child(1) {
+    margin-right: 4px;
+  }
+
+  .footer-right-content__store-badges a:nth-child(2) {
+    margin-left: 4px;
+  }
+
+
 
   /* Modals */
 
@@ -3453,7 +3598,7 @@ h3#tour__sticky-content__name {
   }
 
   .popup-cta__button-container {
-    max-width: 290px;
+    max-width: none;
   }
 
   .tour__content-container {

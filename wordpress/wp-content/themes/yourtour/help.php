@@ -47,13 +47,6 @@
 
           </div>
 
-          <!-- <p class="help-center__or">OR</p>
-
-          <a class="help-center__email-button" href="mailto:hello@goyourtour.com">
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/email-icon.svg">
-          <p>Send us an email</p>
-          </a> -->
-
         </div>
 
       </div>
