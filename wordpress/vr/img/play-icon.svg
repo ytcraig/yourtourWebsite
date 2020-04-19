@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="18px" viewBox="0 0 13 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Triangle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="My-Tours" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.1---Tour---Main" transform="translate(-132.000000, -428.000000)" fill="#FFFFFF">
+            <path d="M133.56921,429.086376 L143.812389,436.177808 C144.266473,436.492174 144.379737,437.115126 144.065371,437.56921 C143.996937,437.668059 143.911238,437.753758 143.812389,437.822192 L133.56921,444.913624 C133.115126,445.22799 132.492174,445.114726 132.177808,444.660642 C132.062028,444.493404 132,444.294836 132,444.091432 L132,429.908568 C132,429.356284 132.447715,428.908568 133,428.908568 C133.203404,428.908568 133.401972,428.970596 133.56921,429.086376 Z" id="Triangle"></path>
+        </g>
+    </g>
+</svg>

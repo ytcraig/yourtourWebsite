@@ -101,7 +101,18 @@
                           </div>
                         </div>
                         <div class="section-tour-example__gradient"></div>
-                        <img class="section-tour-example__img" src="https://yourtourservice.azurewebsites.net/api/image/<?php echo $tour->cover->imageId;?>">
+							<?php 
+								$coverId = null;
+								$key = "coverid=";
+								foreach ($tour->cover->cropSizes as $cropSize) {
+									$coverId = $cropSize->coverId;
+								}
+								if (is_null($coverId)) {
+									$key = "id=";
+									$coverId = $tour->cover->imageId;
+								}
+							?>
+                        <img class="section-tour-example__img" src="https://yourtourservice.azurewebsites.net/api/image/resize?<?php echo $key.$coverId;?>&maxWidth=400&cropkey=Header">
                       </a>
                       </div>
                   </div>

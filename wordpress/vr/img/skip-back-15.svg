@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="25px" viewBox="0 0 21 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>skip-back-15</title>
+    <desc>Created with Sketch.</desc>
+    <g id="On-a-Tour" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="6.7---New-Playback-Toolbar" transform="translate(-33.000000, -606.000000)">
+            <g id="Toolbar" transform="translate(0.000000, 571.000000)">
+                <g id="Playback" transform="translate(10.000000, 8.000000)">
+                    <g id="Buttons" transform="translate(23.500000, 28.185185)">
+                        <g id="skip-back-15">
+                            <path d="M19.4736842,13.2329474 C19.4736842,18.4655789 15.2326316,22.7066316 10,22.7066316 C4.76736842,22.7066316 0.526315789,18.4655789 0.526315789,13.2329474 C0.526315789,8.00031579 4.76736842,3.75926316 10,3.75926316" id="Stroke-1" stroke="#343030" stroke-width="2" stroke-linecap="round" transform="translate(10.000000, 13.232947) scale(-1, 1) translate(-10.000000, -13.232947) "></path>
+                            <path d="M4.41812249,5.62680888 C2.04361642,7.3537954 0.5,10.1540396 0.5,13.3148148 C0.5,18.5615199 4.75329488,22.8148148 10,22.8148148 L10,22.8148148 C15.2467051,22.8148148 19.5,18.5615199 19.5,13.3148148 C19.5,8.06810969 15.2467051,3.81481481 10,3.81481481" id="Oval-2" stroke="#343030" stroke-width="2" stroke-linecap="round"></path>
+                            <text id="15" font-family="Nunito-Black, Nunito" font-size="8" font-weight="700" fill="#343030">
+                                <tspan x="5.2" y="16.4344605">15</tspan>
+                            </text>
+                            <polyline id="Stroke-3" stroke="#343030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(10.053478, 3.755004) scale(-1, 1) translate(-10.053478, -3.755004) " points="8.43847847 0.526526316 11.6684785 3.75500419 8.43847847 6.98348206"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
