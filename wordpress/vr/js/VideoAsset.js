@@ -100,7 +100,7 @@ VideoAsset.prototype.isDynamic = function () {
 };
 
 VideoAsset.prototype.timestamp = function () {
-  if (this._videoElement) {
+  if (this._videoElement && this._videoElement.src != "") {
     this._lastTimestamp = this._videoElement.currentTime;
     if (this._lastTimestamp == 0) {
       // return the index so that it's a different timestamp in case we've switched videos.

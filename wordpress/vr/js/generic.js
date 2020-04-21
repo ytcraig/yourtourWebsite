@@ -150,6 +150,7 @@ function setFollowingCameraMan(following) {
 var previousCameraLon = 0;
 var relockAfter = 1000;
 var relockTimer = null;
+var resetRotation = false;
 
 function resetRelockTimer() {
   if (relockTimer) {
@@ -199,6 +200,7 @@ $(document).ready(function () {
     if (paused) {
       video.pause();
       audio.pause();
+      gpAudio.pause();
     } else {
       switch (state) {
         case states.STOP:
@@ -206,6 +208,9 @@ $(document).ready(function () {
           break;
         case states.WALK:
           video.play();
+          if (guidePointPlaying) {
+            gpAudio.play();
+          }
           break;
       }
     }
@@ -228,9 +233,17 @@ $(document).ready(function () {
   var contBtn = $("#cont-tour-btn");
   contBtn.click(function () {
     $("#panel-tour-continue").hide();
-    $("#panel-tour-during").show();
-
-    startWalk();
+    
+    // if we're not in follow mode, rotate back before starting the walk.
+    if (_followingCameraMan) {
+      startWalk();
+      $("#panel-tour-during").show();
+    } else {
+      rotateTo(previousCameraLon, function () {
+        startWalk();
+        $("#panel-tour-during").show();
+      });
+    }
 
     return false;
   });
@@ -246,6 +259,7 @@ $(document).ready(function () {
       case states.WALK:
         video.pause();
         gpAudio.pause();
+        guidePointPlaying = false;
 
         nextGuidePointName = null;
 
@@ -254,7 +268,7 @@ $(document).ready(function () {
         createNewVideo();
         loadAudio();
         setActive("stop" + videoIndex);
-        resetView();
+        resetRotation = true;
         break;
     }
 
@@ -270,9 +284,12 @@ $(document).ready(function () {
       case states.WALK:
         video.currentTime = Math.max(video.currentTime - 15, 0)
 
-        if (!gpAudio.paused) {
+        if (guidePointPlaying) {
           gpAudio.currentTime = Math.max(gpAudio.currentTime - 15, 0)
         }
+        currentCircleTime = 0;
+        updateCircle();
+        resetView();
         break;
     }
 
@@ -344,7 +361,10 @@ function textureInvalid() {
 }
 
 function videoTextureLoad() {
+  console.log("Video texture load");
   removeOldStopImageLayer();
+  videoLayer.textureStore().removeEventListener('textureLoad', videoTextureLoad);
+  videoLayer.textureStore().removeEventListener('textureError', videoTextureError);
 }
 
 function videoTextureError() {
@@ -389,7 +409,17 @@ function createNewVideo() {
   newVideo.onerror = function () {
     console.error("video error: " + newVideo.error.code);
     
-    if (newVideo.error.code == 4) {
+    if (newVideo.error.code == 3) {
+      if (video) {
+        video.removeAttribute('src');
+        video.load();
+        video = null;
+
+        setTimeout(function() { createNewVideo(); }, 500);
+      } else {
+        tryNextVideoSource();
+      }
+    } else if (newVideo.error.code == 4) {
       tryNextVideoSource();
     }
   }
@@ -419,57 +449,63 @@ function createNewVideo() {
 
   newVideo.oncanplay = function () {
     console.log("onCanPlay");
-
-    oldVideo = video;
-    oldVideoLayer = videoLayer;
-
-    if (video) {
-      video.onended = null;
-    }
-    
-    newVideo.onerror = null;
-    video = newVideo;
-    newVideo = null;
-    video.oncanplay = null;
-    
-    asset = new VideoAsset(video);
-    asset.index = videoIndex;
-    source = new Marzipano.SingleAssetSource(asset);
-
-    videoLayer = scene.createLayer({
-      source: source,
-      geometry: geometry,
-      pinFirstLevel: true
-      // layerOpts: {
-      //   effects: {
-      //     opacity: 0.0
-      //   }
-      // }
-    });
-    videoLayer.textureStore().addEventListener('textureLoad', videoTextureLoad);
-    videoLayer.textureStore().addEventListener('textureError', videoTextureError);
-
-    stage.moveLayer(videoLayer, 0);
-
-    beginStop();
-
-    video.onended = function () {
-      videoLayer.textureStore().removeEventListener('textureLoad', videoTextureLoad);
-      videoLayer.textureStore().removeEventListener('textureError', videoTextureError);
-      videoIndex += 1;
-      setActive("stop" + audioIndex);
-      setState(states.STOP);
-      createNewVideo();
-    };
-  
-    if (!firstVideoLoaded) {
-      firstVideoLoaded = true;
-      var loadingOverlay = $("#loading-overlay");
-      loadingOverlay.fadeOut(500, function() {
-        window.clearInterval(loadingInterval);
-      });
-    }
+    setTimeout(function() { playNewVideo(); }, 100);
   };
+}
+
+function playNewVideo() {
+  oldVideo = video;
+  oldVideoLayer = videoLayer;
+
+  if (video) {
+    video.onended = null;
+  }
+  
+  newVideo.onerror = null;
+  video = newVideo;
+  newVideo = null;
+  video.oncanplay = null;
+  
+  asset = new VideoAsset(video);
+  asset.index = videoIndex;
+  source = new Marzipano.SingleAssetSource(asset);
+
+  if (videoLayer) {
+    videoLayer.textureStore().removeEventListener('textureLoad', videoTextureLoad);
+    videoLayer.textureStore().removeEventListener('textureError', videoTextureError);
+  }
+
+  videoLayer = scene.createLayer({
+    source: source,
+    geometry: geometry,
+    pinFirstLevel: true
+  });
+  videoLayer.textureStore().addEventListener('textureLoad', videoTextureLoad);
+  videoLayer.textureStore().addEventListener('textureError', videoTextureError);
+
+  stage.moveLayer(videoLayer, 0);
+
+  beginStop();
+
+  if (resetRotation) {
+    resetRotation = false;
+    resetView();
+  }
+
+  video.onended = function () {
+    videoIndex += 1;
+    setActive("stop" + audioIndex);
+    setState(states.STOP);
+    createNewVideo();
+  };
+
+  if (!firstVideoLoaded) {
+    firstVideoLoaded = true;
+    var loadingOverlay = $("#loading-overlay");
+    loadingOverlay.fadeOut(500, function() {
+      window.clearInterval(loadingInterval);
+    });
+  }
 }
 
 function checkCircleTimes() {
@@ -509,9 +545,6 @@ function beginStop() {
     if (video.currentTime > 0) {
       video.currentTime = 0;
     }
-    if (_followingCameraMan) {
-      resetView();
-    }
   } else {
     view.setPitch(0.2);
   }
@@ -539,9 +572,11 @@ function tryLoad() {
     video.pause();
     audio.pause();
     gpAudio.pause();
+    guidePointPlaying = false;
 
     nextGuidePointName = null;
 
+    resetRotation = true;
     createNewVideo();
     loadAudio();
 
@@ -564,7 +599,7 @@ function tryLoad() {
   renderloop.addEventListener('afterRender', afterRender);
 
   audio.onended = function () {
-    if (autoContinue || ((currentHotspots.length == 0 && audioNames[audioIndex] != null) || audioIndex == 0)) {
+    if (autoContinue || ((currentHotspots.length == 0 && audioNames[audioIndex] != null && _followingCameraMan) || audioIndex == 0)) {
       startWalk();
       autoContinue = false;
     } else {
@@ -651,14 +686,14 @@ function beforeRender() {
 }
 
 function afterRender() {
+  if (oldVideo) {
+    oldVideo.removeAttribute('src');
+    oldVideo.load();
+    oldVideo = null;
+  }
   if (oldVideoLayer) {
     scene.destroyLayer(oldVideoLayer);
     oldVideoLayer = null;
-    if (oldVideo) {
-      oldVideo.removeAttribute('src');
-      oldVideo.load();
-      oldVideo = null;
-    }
   }
 }
 
@@ -940,7 +975,7 @@ function resetView() {
   setCompassAngle(0);
 }
 
-function rotateTo(to) {
+function rotateTo(to, completion) {
   movementComplete = false;
   scene.startMovement(rotate({
     from: view.yaw(),
@@ -949,6 +984,10 @@ function rotateTo(to) {
   }), function () {
     if (movementComplete) {
       resetView();
+    }
+
+    if (completion) {
+      completion();
     }
   });
 }
