@@ -21,7 +21,8 @@ var useFullscreenButton = true;
 // Create viewer.
 // Video requires WebGL support.
 var viewerOpts = { stageType: 'webgl' };
-var viewer = new Marzipano.Viewer(document.getElementById('pano'), viewerOpts);
+var pano = document.getElementById('pano');
+var viewer = new Marzipano.Viewer(pano, viewerOpts);
 
 var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
 registerDeviceOrientation();
@@ -99,6 +100,7 @@ var arrow = scene.createLayer({
 });
 arrow.hidden = true;
 var arrowTarget;
+var arrowLocation;
 
 var compassBackground = document.getElementById('compass');
 var compass = document.getElementById('Arrow');
@@ -187,6 +189,32 @@ if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream && window.l
   useFullscreenButton = false;
   fullscreenButton.style.visibility = "hidden";
   fullscreenIcon.style.visibility = "hidden";
+}
+
+var clickStart;
+pano.onmousedown = function (e) {
+  clickStart = {x: e.pageX, y: e.pageY};
+}
+
+pano.onclick = function (e) {
+  if (!arrow.hidden && Math.abs(e.pageX - clickStart.x) < 10 && Math.abs(e.pageY - clickStart.y) < 10) {
+    let coords = view.screenToCoordinates({x: e.pageX, y: e.pageY});
+
+    let latDiff = Math.abs(clampAngle(coords.pitch - arrowLocation.lat + Math.PI * 0.5));
+    if (latDiff < 0.05) {
+      let lonDiff = Math.abs(clampAngle(coords.yaw - arrowLocation.lon));
+      if (lonDiff < 0.04) {
+        switch (state) {
+          case states.STOP:
+            rotateTo(arrowTarget.lon);
+            break;
+          case states.WALK:
+            rotateTo(previousCameraLon);
+            break;
+        }
+      }
+    }
+  }
 }
 
 // function changeLoadingImage() {
@@ -1032,12 +1060,13 @@ function resetView() {
 
 function rotateTo(to, completion) {
   movementComplete = false;
+  var resetAfter = to == previousCameraLon;
   scene.startMovement(rotate({
     from: view.yaw(),
     to: to,
     duration: 0.5
   }), function () {
-    if (movementComplete) {
+    if (movementComplete && resetAfter) {
       resetView();
     }
 
@@ -1263,7 +1292,7 @@ function updateArrowTarget(target, keepLevel) {
   let bearing = lookAt.initialBearingTo(target);
   let maxDistance = lookAt.distanceTo(target);
   let arrowDistance = Math.min(maxDistance * 0.95, minDistance);
-  let arrowLocation = lookAt.locationWith(bearing, arrowDistance);
+  arrowLocation = lookAt.locationWith(bearing, arrowDistance);
 
   let arrowBearing = arrowLocation.initialBearingTo(target);
 
