@@ -9,8 +9,6 @@ function loadTourDetails() {
     var id = urlParams.get('id')
     // get tour details
     $.getJSON(baseURL + "api/tour/" + id, function(result, status){
-        console.log("Request complete: " + status);
-
         if (status == "success") {
             tourJSON = result;
             if (vrJSON) {
@@ -21,8 +19,6 @@ function loadTourDetails() {
 
     // get tour VR Supplement
     $.getJSON(baseURL + "api/vr/" + id, function(result, status){
-        console.log("VR Request complete: " + status);
-
         if (status == "success") {
             vrJSON = result;
             if (tourJSON) {
@@ -38,18 +34,16 @@ var audioNames = [];
 var hotspots = [];
 var guidePointTimes = [];
 var circleTimesArray = [];
+var cowlSize = 400;
 
 var stopSpacer;
 
 function getCircleTimes(index) {
     let videoId = videoNames[index];
     $.getJSON(baseURL + "api/video/" + videoId + "/details", function(result, status){
-        console.log("Video details Request complete: " + status);
-
         if (status == "success") {
             let cowl = JSON.parse(result.cowlAsString);
             if (cowl != null) {
-                console.log("Cowl: " + cowl);
                 let placements = cowl.Placements
                 let keys = Object.keys(placements);
                 let intKeys = keys.map(key => parseInt(key));
@@ -68,6 +62,12 @@ function getCircleTimes(index) {
                 if (circleTimes.length > 0) {
                     circleTimesArray[index] = circleTimes
                 }
+
+                if (index == 0) {
+                    if (cowl.DefaultRadius) {
+                        cowlSize = cowl.DefaultRadius;
+                    }
+                }
             }
             // checkCircleTimes();
         }
@@ -83,16 +83,21 @@ function getCircleTimes(index) {
 
 function setupWithTour() {
 
-    if (tourJSON.stops instanceof Array) {
+    if (tourJSON.stops instanceof Array && tourJSON.walks instanceof Array && vrJSON.walks instanceof Array) {
+        var sortedWalks = [];
         tourJSON.stops.forEach(stop => {
             audioNames.push(stop.audioId);
+
+            var nextWalk = tourJSON.walks.find(function (walk) {
+                return walk.commenceStopId == this;
+            }, stop.id);
+            if (nextWalk) {
+                sortedWalks.push(nextWalk);
+            }
         });
-    }
+        tourJSON.walks = sortedWalks;
 
-    // sort walks in to correct order.
-
-    if (tourJSON.walks instanceof Array && vrJSON.walks instanceof Array) {
-        tourJSON.walks.forEach(walk => {
+        sortedWalks.forEach(walk => {
             var guidePoints = []
             if (walk.geoPoints instanceof Array) {
                 walk.geoPoints.forEach(geoPoint => {

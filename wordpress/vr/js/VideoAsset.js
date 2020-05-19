@@ -25,10 +25,6 @@ function VideoAsset(videoElement) {
   this._lastTimestamp = -1;
   this.index = 0;
 
-  this._emptyCanvas = document.createElement('canvas');
-  this._emptyCanvas.width = 1;
-  this._emptyCanvas.height = 1;
-
   this.setVideo(videoElement);
 }
 
@@ -57,6 +53,9 @@ VideoAsset.prototype.setVideo = function (videoElement) {
   }
 
   function emitChangeIfPlaying() {
+    if (!self._videoElement) {
+      return;
+    }
     if (!self._videoElement.paused) {
       self.emit('change');
     }
@@ -73,7 +72,7 @@ VideoAsset.prototype.width = function () {
   if (this._videoElement) {
     return this._videoElement.videoWidth;
   } else {
-    return this._emptyCanvas.width;
+    return 0;
   }
 };
 
@@ -81,7 +80,7 @@ VideoAsset.prototype.height = function () {
   if (this._videoElement) {
     return this._videoElement.videoHeight;
   } else {
-    return this._emptyCanvas.height;
+    return 0;
   }
 };
 
@@ -91,7 +90,7 @@ VideoAsset.prototype.element = function () {
   if (this._videoElement) {
     return this._videoElement;
   } else {
-    return this._emptyCanvas;
+    return null;
   }
 };
 

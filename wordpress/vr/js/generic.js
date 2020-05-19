@@ -16,6 +16,7 @@
 'use strict';
 
 var useVRImages = false;
+var useFullscreenButton = true;
 
 // Create viewer.
 // Video requires WebGL support.
@@ -23,12 +24,7 @@ var viewerOpts = { stageType: 'webgl' };
 var viewer = new Marzipano.Viewer(document.getElementById('pano'), viewerOpts);
 
 var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
-
-if (window.DeviceOrientationEvent && typeof window.DeviceOrientationEvent.requestPermission === 'function') {
-  
-} else {
-  registerDeviceOrientation();
-}
+registerDeviceOrientation();
 
 function registerDeviceOrientation() {
   var controls = viewer.controls();
@@ -42,11 +38,16 @@ function registerDeviceOrientation() {
   controls.enableMethod('deviceOrientation');
 }
 
+window.addEventListener("message", receiveMessage, false);
+function receiveMessage(event) {
+    // console.debug(event.data);
+    deviceOrientationControlMethod._handleData(event.data);
+}
+
 // Create asset and source.
 var asset = new VideoAsset();
 var source = new Marzipano.SingleAssetSource(asset);
 var video = null;
-var oldVideo = null;
 var newVideo = null;
 var stopImageSource;
 var audio = document.createElement('audio');
@@ -79,7 +80,7 @@ var stage = viewer.stage();
 var coverCircleSource = Marzipano.ImageUrlSource.fromString(
   "/vr/img/CoverCircle.png"
 );
-var coverCircleGeometry = new Marzipano.PlaneGeometry({ size: 0.7 });
+var coverCircleGeometry = new Marzipano.PlaneGeometry({ size: 400 * 3 / 2000 }); // 20 / 3
 coverCircleGeometry.rotX = -Math.PI / 2
 var circleLayer = scene.createLayer({
   source: coverCircleSource,
@@ -102,6 +103,9 @@ var arrowTarget;
 var compassBackground = document.getElementById('compass');
 var compass = document.getElementById('Arrow');
 var hotspotDetails = document.getElementById('hotspot-details');
+
+var fullscreenButton = document.getElementById('fullscreen');
+var fullscreenIcon = document.getElementById('fullscreen-icon');
 
 var videoFooter = document.getElementById('video-footer');
 var controlContainer = document.getElementById('control-container');
@@ -179,6 +183,12 @@ function fadeOutLoadingImage() {
   loadingImg.fadeOut(300, changeLoadingImage);
 }
 
+if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream && window.location == window.parent.location) {
+  useFullscreenButton = false;
+  fullscreenButton.style.visibility = "hidden";
+  fullscreenIcon.style.visibility = "hidden";
+}
+
 // function changeLoadingImage() {
 //   loadingImgIndex += 1;
 //   if (loadingImgIndex == loadingImgSources.length) {
@@ -220,12 +230,13 @@ $(document).ready(function () {
   var beginBtn = $("#begin-tour-btn");
   beginBtn.click(function () {
     tryStart();
+    openFullscreen(document.documentElement);
     $("#panel-tour-begin").hide();
     $("#panel-tour-during").show();
     
     if (videoFooter.className == 'video-footer') {
       stopSpacer.style.display = 'inline-block';
-  }
+    }
 
     return false;
   });
@@ -347,7 +358,6 @@ function createNewStopImage() {
 }
 
 function stopTextureLoad() {
-  console.log('Texture loaded!');
   removeOldStopImageLayer();
   beginStop();
 }
@@ -361,7 +371,6 @@ function textureInvalid() {
 }
 
 function videoTextureLoad() {
-  console.log("Video texture load");
   removeOldStopImageLayer();
   videoLayer.textureStore().removeEventListener('textureLoad', videoTextureLoad);
   videoLayer.textureStore().removeEventListener('textureError', videoTextureError);
@@ -374,7 +383,6 @@ function videoTextureError() {
 function tryNextVideoSource() {
   currentSrc += 1;
     if (currentSrc < sources.length) {
-      console.log("Source errored, trying next");
       newVideo.removeAttribute('src');
       newVideo.load();
       newVideo.src = sources[currentSrc];
@@ -392,9 +400,12 @@ function createNewVideo() {
     removeStopImageLayer();
   }
 
-  if (video && video.networkState == 2) {
+  if (video) {
+    asset.setVideo(null);
     video.pause();
     video.removeAttribute('src');
+    video.load();
+    video = null;
   }
 
   if (videoIndex >= videoNames.length) {
@@ -406,9 +417,7 @@ function createNewVideo() {
   newVideo.playsInline = true;
   newVideo.webkitPlaysInline = true;
 
-  newVideo.onerror = function () {
-    console.error("video error: " + newVideo.error.code);
-    
+  newVideo.onerror = function () {    
     if (newVideo.error.code == 3) {
       if (video) {
         video.removeAttribute('src');
@@ -430,8 +439,6 @@ function createNewVideo() {
   if (currentSrc == 0) {
     let src = sources[currentSrc];
     $.get(src, function(result, status) {
-        console.log("got video url: " + status);
-
         if (status == "success") {
           newVideo.src = result;
           newVideo.load();
@@ -448,13 +455,11 @@ function createNewVideo() {
   newVideo.preload = 'auto';
 
   newVideo.oncanplay = function () {
-    console.log("onCanPlay");
     setTimeout(function() { playNewVideo(); }, 100);
   };
 }
 
 function playNewVideo() {
-  oldVideo = video;
   oldVideoLayer = videoLayer;
 
   if (video) {
@@ -588,6 +593,11 @@ function tryLoad() {
     return false;
   });
 
+  coverCircleGeometry.size = cowlSize * 3 / 2000;
+  for (var i = 0; i < coverCircleGeometry.levelList.length; i++) {
+    coverCircleGeometry.levelList[i]._size = cowlSize * 3 / 2000;
+  }
+
 //   var walks = $(".walk");
 //   walks.click(function () {
 //     setActive(this.id);
@@ -667,15 +677,20 @@ function tryStart() {
 
   audio.src == "" ? audio.onended() : audio.play();
 
-  if (window.DeviceOrientationEvent && typeof window.DeviceOrientationEvent.requestPermission === 'function') {
-    window.DeviceOrientationEvent.requestPermission().then(response => {
-      if (response == 'granted') {
-        registerDeviceOrientation();
-      }
-    })
-    .catch(console.error)
-  } else {
+  if (window.location == window.parent.location) {
+    if (window.DeviceOrientationEvent && typeof window.DeviceOrientationEvent.requestPermission === 'function') {
+      window.DeviceOrientationEvent.requestPermission().then(response => {
+        if (response == 'granted') {
+          // registerDeviceOrientation();
+        }
+      })
+      .catch(console.error)
+    } else {
 
+    }
+  } else {
+    // in an iFrame. Tell the parent to start updates
+    window.parent.postMessage("startDeviceOrientationUpdates", "*");
   }
 }
 
@@ -686,11 +701,6 @@ function beforeRender() {
 }
 
 function afterRender() {
-  if (oldVideo) {
-    oldVideo.removeAttribute('src');
-    oldVideo.load();
-    oldVideo = null;
-  }
   if (oldVideoLayer) {
     scene.destroyLayer(oldVideoLayer);
     oldVideoLayer = null;
@@ -944,6 +954,51 @@ compassBackground.onclick = function () {
   rotateTo(previousCameraLon);
 }
 
+var parentFullScreen = false;
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  } else if (window.location !== window.parent.location) {
+    // no request fullscreen function available and we're in an iFrame. Send message requesting fullscreen to parent.
+    window.parent.postMessage("requestFullscreen", "*");
+    parentFullScreen = true;
+  }
+
+  fullscreenIcon.src = "/vr/img/exit-full-screen.svg";
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
+
+  fullscreenIcon.src = "/vr/img/full-screen.svg";
+}
+
+fullscreenButton.onclick = function () {
+  if (parentFullScreen) {
+    parentFullScreen = false;
+    window.parent.postMessage("exitFullscreen", "*");
+    closeFullscreen();
+  } else if (document.fullscreenElement) {
+    closeFullscreen();
+  } else {
+    openFullscreen(document.documentElement);
+  }
+}
+
 var movementComplete = false;
 function rotate(opts) {
   var from = opts.from;
@@ -1068,6 +1123,10 @@ function onWindowResize() {
       compassBackground.style.right = '30px';
       compassBackground.style.transform = "scale(1.2, 1.2)";
 
+      fullscreenButton.style.top = '30px';
+      fullscreenButton.style.left = '30px';
+      fullscreenButton.style.transform = "scale(1.2, 1.2)";
+      
       controlContainer.style.width = '160px';
       controlContainer.style.maxWidth = '160px';
       controlContainer.style.marginLeft = '5px';
@@ -1081,6 +1140,10 @@ function onWindowResize() {
       compassBackground.style.top = '10px';
       compassBackground.style.right = '10px';
       compassBackground.style.transform = "scale(1.0, 1.0)";
+
+      fullscreenButton.style.top = '10px';
+      fullscreenButton.style.left = '10px';
+      fullscreenButton.style.transform = "scale(1.0, 1.0)";
 
       controlContainer.style.width = '130px';
       controlContainer.style.maxWidth = '120px';

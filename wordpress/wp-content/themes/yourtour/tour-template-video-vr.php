@@ -31,6 +31,10 @@
     </svg>
   </div>
 
+  <div id="fullscreen">
+    <img id="fullscreen-icon" src="/vr/img/full-screen.svg" />
+  </div>
+  
   <div class="video-footer" id="video-footer">
     <div id="panel-tour-begin">
       <button class="start-btn" id="begin-tour-btn"> <img class="play-icon" />Begin tour</button>
