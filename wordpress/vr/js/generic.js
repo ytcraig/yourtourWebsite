@@ -170,6 +170,7 @@ var currentGuidePointIndex = 0;
 var nextGuidePointTime = 0;
 var nextGuidePointName = null;
 var guidePointPlaying = false;
+var videoFinished = false;
 
 var currentHotspots = [];
 var dormantHotspots = [];
@@ -526,10 +527,11 @@ function playNewVideo() {
   }
 
   video.onended = function () {
-    videoIndex += 1;
-    setActive("stop" + audioIndex);
-    setState(states.STOP);
-    createNewVideo();
+    if (guidePointPlaying) {
+      videoFinished = true;
+    } else {
+      finishWalk();
+    }
   };
 
   if (!firstVideoLoaded) {
@@ -539,6 +541,14 @@ function playNewVideo() {
       window.clearInterval(loadingInterval);
     });
   }
+}
+
+function finishWalk() {
+  videoFinished = false;
+  videoIndex += 1;
+  setActive("stop" + audioIndex);
+  setState(states.STOP);
+  createNewVideo();
 }
 
 function checkCircleTimes() {
@@ -657,7 +667,12 @@ function tryLoad() {
 
   gpAudio.onended = function () {
     guidePointPlaying = false;
-    loadNextGPAudio();
+    if (videoFinished) {
+      finishWalk();
+    } else {
+      loadNextGPAudio();
+    }
+    
   };
 
   // const mediaConfig = {
