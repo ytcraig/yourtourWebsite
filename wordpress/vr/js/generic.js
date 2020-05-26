@@ -218,6 +218,13 @@ pano.onclick = function (e) {
   }
 }
 
+document.addEventListener('keyup', event => {
+  if (event.code === 'Space') {
+    console.log('Space pressed')
+    togglePlay();
+  }
+})
+
 // function changeLoadingImage() {
 //   loadingImgIndex += 1;
 //   if (loadingImgIndex == loadingImgSources.length) {
@@ -227,32 +234,57 @@ pano.onclick = function (e) {
 //   loadingImg.fadeIn(300);
 // }
 
+var playBtn;
+function togglePlay() {
+  playBtn.toggleClass("paused");
+
+  if (awaitingContinue) {
+    continueTour();
+    return;
+  }
+
+  paused = !paused;
+  if (paused) {
+    video.pause();
+    audio.pause();
+    gpAudio.pause();
+  } else {
+    switch (state) {
+      case states.STOP:
+        audio.src == "" ? audio.onended() : audio.play();
+        break;
+      case states.WALK:
+        video.play();
+        if (guidePointPlaying) {
+          gpAudio.play();
+        }
+        break;
+    }
+  }
+}
+
+function continueTour() {
+  $("#panel-tour-continue").hide();
+  awaitingContinue = false;
+    
+  // if we're not in follow mode, rotate back before starting the walk.
+  if (_followingCameraMan) {
+    startWalk();
+    $("#panel-tour-during").show();
+  } else {
+    rotateTo(previousCameraLon, function () {
+      startWalk();
+      $("#panel-tour-during").show();
+    });
+  }
+}
+
 $(document).ready(function () {
   // loadingImg = $("#loading-image");
   // loadingInterval = window.setInterval(fadeOutLoadingImage, 1600);
-
-  var playBtn = $(".play-btn.paused");
+  playBtn = $(".play-btn.paused");
   playBtn.click(function () {
-    playBtn.toggleClass("paused");
-
-    paused = !paused;
-    if (paused) {
-      video.pause();
-      audio.pause();
-      gpAudio.pause();
-    } else {
-      switch (state) {
-        case states.STOP:
-          audio.src == "" ? audio.onended() : audio.play();
-          break;
-        case states.WALK:
-          video.play();
-          if (guidePointPlaying) {
-            gpAudio.play();
-          }
-          break;
-      }
-    }
+    togglePlay();
     return false;
   });
 
@@ -272,19 +304,7 @@ $(document).ready(function () {
 
   var contBtn = $("#cont-tour-btn");
   contBtn.click(function () {
-    $("#panel-tour-continue").hide();
-    
-    // if we're not in follow mode, rotate back before starting the walk.
-    if (_followingCameraMan) {
-      startWalk();
-      $("#panel-tour-during").show();
-    } else {
-      rotateTo(previousCameraLon, function () {
-        startWalk();
-        $("#panel-tour-during").show();
-      });
-    }
-
+    continueTour();
     return false;
   });
 
@@ -603,7 +623,6 @@ function tryLoad() {
   }
   loaded = true;
 
-  var playBtn = $(".play-btn.paused");
   var stops = $(".stop");
   stops.click(function () {
     setActive(this.id);
