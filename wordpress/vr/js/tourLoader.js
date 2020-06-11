@@ -5,10 +5,8 @@ var vrJSON;
 
 function loadTourDetails() {
 
-    var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id')
     // get tour details
-    $.getJSON(baseURL + "api/tour/" + id, function(result, status){
+    $.getJSON(baseURL + "api/tour/" + tourId, function(result, status){
         if (status == "success") {
             tourJSON = result;
             if (vrJSON) {
@@ -18,7 +16,7 @@ function loadTourDetails() {
     });
 
     // get tour VR Supplement
-    $.getJSON(baseURL + "api/vr/" + id, function(result, status){
+    $.getJSON(baseURL + "api/vr/" + tourId, function(result, status){
         if (status == "success") {
             vrJSON = result;
             if (tourJSON) {
@@ -30,11 +28,11 @@ function loadTourDetails() {
 
 var stopImageNames = [];
 var videoNames = [];
+var cowlSizes = [];
 var audioNames = [];
 var hotspots = [];
 var guidePointTimes = [];
 var circleTimesArray = [];
-var cowlSize = 400;
 
 var stopSpacer;
 
@@ -63,10 +61,8 @@ function getCircleTimes(index) {
                     circleTimesArray[index] = circleTimes
                 }
 
-                if (index == 0) {
-                    if (cowl.DefaultRadius) {
-                        cowlSize = cowl.DefaultRadius;
-                    }
+                if (cowl.DefaultRadius != null) {
+                    cowlSizes[index] = cowl.DefaultRadius;
                 }
             }
             // checkCircleTimes();
@@ -113,6 +109,7 @@ function setupWithTour() {
             if (vrWalk != null) {
                 videoNames.push(vrWalk.vrSupplement.videoId);
                 circleTimesArray.push([[0.0, 0.0, Math.PI]]);
+                cowlSizes.push(400);
             }
         });
     }

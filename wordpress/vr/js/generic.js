@@ -541,6 +541,11 @@ function playNewVideo() {
 
   beginStop();
 
+  coverCircleGeometry.size = cowlSizes[videoIndex] * 3 / 2000;
+  for (var i = 0; i < coverCircleGeometry.levelList.length; i++) {
+    coverCircleGeometry.levelList[i]._size = cowlSizes[videoIndex] * 3 / 2000;
+  }
+
   if (resetRotation) {
     resetRotation = false;
     resetView();
@@ -650,9 +655,9 @@ function tryLoad() {
     return false;
   });
 
-  coverCircleGeometry.size = cowlSize * 3 / 2000;
+  coverCircleGeometry.size = cowlSizes[0] * 3 / 2000;
   for (var i = 0; i < coverCircleGeometry.levelList.length; i++) {
-    coverCircleGeometry.levelList[i]._size = cowlSize * 3 / 2000;
+    coverCircleGeometry.levelList[i]._size = cowlSizes[0] * 3 / 2000;
   }
 
 //   var walks = $(".walk");

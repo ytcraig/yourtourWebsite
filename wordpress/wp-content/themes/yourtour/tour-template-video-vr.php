@@ -15,6 +15,8 @@
 
   <script>
     let baseURL = '<?php echo get_field("base_url"); ?>'
+    var urlParams = new URLSearchParams(window.location.search);
+    var tourId = urlParams.get('id')
   </script>
 </head>
 
