@@ -355,9 +355,6 @@ $(document).ready(function () {
 
     return false;
   });
-
-  window.onresize = onWindowResize;
-  onWindowResize();
 });
 
 function setActive(id) {
@@ -1173,52 +1170,6 @@ function stopTouchAndScrollEventPropagation(element, eventList) {
     element.addEventListener(eventList[i], function (event) {
       event.stopPropagation();
     });
-  }
-}
-
-function onWindowResize() {
-  if (window.innerHeight > window.innerWidth) {
-    hotspotDetails.style.flexDirection = 'column';
-  } else {
-    hotspotDetails.style.flexDirection = 'row';
-  }
-
-  if (window.innerHeight > 700 && window.innerWidth > 700) {
-    if (videoFooter.className != 'video-footer-floating') {
-      videoFooter.className = 'video-footer-floating';
-
-      compassBackground.style.top = '30px';
-      compassBackground.style.right = '30px';
-      compassBackground.style.transform = "scale(1.2, 1.2)";
-
-      fullscreenButton.style.top = '30px';
-      fullscreenButton.style.left = '30px';
-      fullscreenButton.style.transform = "scale(1.2, 1.2)";
-      
-      controlContainer.style.width = '160px';
-      controlContainer.style.maxWidth = '160px';
-      controlContainer.style.marginLeft = '5px';
-
-      // stopSpacer.style.display = 'none';
-    }
-  } else {
-    if (videoFooter.className != 'video-footer') {
-      videoFooter.className = 'video-footer';
-
-      compassBackground.style.top = '10px';
-      compassBackground.style.right = '10px';
-      compassBackground.style.transform = "scale(1.0, 1.0)";
-
-      fullscreenButton.style.top = '10px';
-      fullscreenButton.style.left = '10px';
-      fullscreenButton.style.transform = "scale(1.0, 1.0)";
-
-      controlContainer.style.width = '130px';
-      controlContainer.style.maxWidth = '120px';
-      controlContainer.style.marginLeft = '0px';
-
-      // stopSpacer.style.display = 'inline-block';
-    }
   }
 }
 

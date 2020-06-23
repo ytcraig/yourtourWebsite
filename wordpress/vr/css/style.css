@@ -122,16 +122,32 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 20px;
+}
+
+@media screen and (orientation: portrait) {
+  #hotspot-details {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 700px) and (min-height: 700px) {
+  #hotspot-details {
+    padding: 50px;
+  }
 }
 
 #hotspot-details-container {
   max-width: 500px;
+  min-width: 200px;
+  flex: 1 1 100%;
 }
 
 #hotspot-image-container {
-  height: 100%;
+  flex: 1 1 100%;
   min-width: 30%;
+  width: auto;
+  height: intrinsic;
 }
 
 #hotspot-details h1 {
@@ -191,36 +207,44 @@ html, body {
 
 .video-footer {
   text-align: center;
-  width: 100%;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
-  /*filter: blur(5px);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);*/
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   padding: 10px 0px 10px 10px;
 }
 
-.video-footer-floating {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  /*filter: blur(5px);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);*/
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  right: 30px;
-  padding: 10px 0px 10px 10px;
-  border-radius: 20px;
-  max-width: max-content;
-  margin: auto;
+@media screen and (min-width: 700px) and (min-height: 700px) {
+  .video-footer {
+    text-align: center;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    border-radius: 20px;
+    max-width: max-content;
+    margin: auto;
+  }
+
+  #compass {
+    top: 30px;
+    right: 30px;
+    transform: scale(1.2);
+  }
+
+  #fullscreen {
+    top: 30px;
+    left: 30px;
+    transform: scale(1.2);
+  }
+
+  .control-container {
+    width: 160px;
+    min-width: 160px;
+    margin-left: 5px;
+  }
 }
 
 .start-btn {
@@ -334,14 +358,13 @@ html, body {
 
 /*IE*/
 
-@*@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+/*@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .stops-container-wrap {
     margin-right: -10px;
     padding-top: 32px;
     margin-top: -32px;
     margin-bottom: -32px;
     padding-bottom: 32px;
-    /* ie scrollbar color properties */
     scrollbar-base-color: #efefef;
     scrollbar-face-color: #666666;
     scrollbar-3dlight-color: #666666;
@@ -351,16 +374,16 @@ html, body {
     scrollbar-shadow-color: #666666;
     scrollbar-dark-shadow-color: #666666;
   }
-  *@ .stops-container-wrap:after {
+  @ .stops-container-wrap:after {
     content: "";
     height: 32px;
     display: block;
   }
-}
+}*/
 
 /*Edge*/
 
-@*@supports (-ms-ime-align:auto) {
+/*@supports (-ms-ime-align:auto) {
   .stops-container-wrap {
     margin-right: -10px;
     padding-top: 16px;
@@ -373,7 +396,7 @@ html, body {
     height: 16px;
     display: block;
   }
-}
+}*/
 
 /*Firefox*/
 
@@ -408,43 +431,6 @@ html, body {
   overflow: visible;
   white-space: nowrap;
 }
-
-/*  .control-container {
-    height: 100px;
-    width: 100%;
-    background: rgba(255,255,255,0.5);
-    backdrop-filter: blur(5px);
-    position: absolute;
-    bottom: 0;
-    text-align:center;
-    margin :0 auto ;
-    display: flex;
-    justify-content: center;
-  }
-
-  .start-btn {
-    position: absolute;
-    height: 46px;
-    color: #fff;
-    background-color: #22bfb3;
-    padding: 15px 60px 15px 60px;
-    border-width: 0;
-    border-radius: 23px;
-    margin :0 auto ;
-    display: flex;
-    justify-content: center;
-    top: 27px;
-  }
-
-  .play-icon {
-    width: 13px;
-    height:18px;
-    margin: 0 5px 0 0;
-    stroke: #fff;
-    display: inline-block;
-    border: none;
-    border-width: 0;
-  }*/
 
 .stop, .walk {
   /*float: left;*/
